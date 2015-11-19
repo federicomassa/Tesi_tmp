@@ -27,6 +27,30 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   TMultiGraph* mg = new TMultiGraph();
 
+  /// CHECK IF TARGET WAS MATCHED CORRECTLY ///
+  TH1F* hist_check50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__pt"));
+  if (hist_check50->GetEntries() == 0) std::cout << "WARNING: " + sample + "pu50 was not correctly target matched" << std::endl;
+ 
+  TH1F* hist_check100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__pt"));
+  if (hist_check100->GetEntries() == 0) std::cout << "WARNING: " + sample + "pu100 was not correctly target matched" << std::endl;
+
+  TH1F* hist_check140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__pt"));
+  if (hist_check140->GetEntries() == 0) std::cout << "WARNING: " + sample + "pu140 was not correctly target matched" << std::endl;
+
+  TH1F* hist_check200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__pt"));
+  if (hist_check200->GetEntries() == 0) std::cout << "WARNING: " + sample + "pu200 was not correctly target matched" << std::endl;
+
+  TH1F* hist_check300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__pt"));
+  if (hist_check300->GetEntries() == 0) std::cout << "WARNING: " + sample + "pu300 was not correctly target matched" << std::endl;
+
+  delete hist_check50;
+  delete hist_check100;
+  delete hist_check140;
+  delete hist_check200;
+  delete hist_check300;
+
+  //////////////
+
   biasPt50->SetLineColor(kCyan);
   biasPt100->SetLineColor(kBlue);
   biasPt140->SetLineColor(kGreen);
@@ -493,26 +517,26 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     TCanvas* canv_nPixHits = new TCanvas();
     TCanvas* canv_nSCTHits = new TCanvas();
     
-    TH1F* nSiHits50 = (TH1F*) in50->Get("TrackHist_reco_all__nSiHits");
-    TH1F* nPixHits50 = (TH1F*) in50->Get("TrackHist_reco_all__nPixHits");
-    TH1F* nSCTHits50 = (TH1F*) in50->Get("TrackHist_reco_all__nSCTHits");
+    TH1F* nSiHits50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nSiHits"));
+    TH1F* nPixHits50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nPixHits"));
+    TH1F* nSCTHits50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nSCTHits"));
 
-    TH1F* nSiHits100 = (TH1F*) in100->Get("TrackHist_reco_all__nSiHits");
-    TH1F* nPixHits100 = (TH1F*) in100->Get("TrackHist_reco_all__nPixHits");
-    TH1F* nSCTHits100 = (TH1F*) in100->Get("TrackHist_reco_all__nSCTHits");
+    TH1F* nSiHits100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nSiHits"));
+    TH1F* nPixHits100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nPixHits"));
+    TH1F* nSCTHits100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nSCTHits"));
 
-    TH1F* nSiHits140 = (TH1F*) in140->Get("TrackHist_reco_all__nSiHits");
-    TH1F* nPixHits140 = (TH1F*) in140->Get("TrackHist_reco_all__nPixHits");
-    TH1F* nSCTHits140 = (TH1F*) in140->Get("TrackHist_reco_all__nSCTHits");
+    TH1F* nSiHits140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nSiHits"));
+    TH1F* nPixHits140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nPixHits"));
+    TH1F* nSCTHits140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nSCTHits"));
 
-    TH1F* nSiHits200 = (TH1F*) in200->Get("TrackHist_reco_all__nSiHits");
-    TH1F* nPixHits200 = (TH1F*) in200->Get("TrackHist_reco_all__nPixHits");
-    TH1F* nSCTHits200 = (TH1F*) in200->Get("TrackHist_reco_all__nSCTHits");
+    TH1F* nSiHits200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nSiHits"));
+    TH1F* nPixHits200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nPixHits"));
+    TH1F* nSCTHits200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nSCTHits"));
 
-    TH1F* nSiHits300 = (TH1F*) in300->Get("TrackHist_reco_all__nSiHits");
-    TH1F* nPixHits300 = (TH1F*) in300->Get("TrackHist_reco_all__nPixHits");
-    TH1F* nSCTHits300 = (TH1F*) in300->Get("TrackHist_reco_all__nSCTHits");
-    
+    TH1F* nSiHits300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nSiHits"));
+    TH1F* nPixHits300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nPixHits"));
+    TH1F* nSCTHits300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nSCTHits"));
+
     nSiHits50->SetLineColor(kCyan);
     nSiHits100->SetLineColor(kBlue);
     nSiHits140->SetLineColor(kGreen);
@@ -632,25 +656,25 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     TCanvas* canv_nPixHitsFake = new TCanvas();
     TCanvas* canv_nSCTHitsFake = new TCanvas();
     
-    TH1F* nSiHitsFake50 = (TH1F*) in50->Get("TrackHist_reco_all__nFakeSiHits");
-    TH1F* nPixHitsFake50 = (TH1F*) in50->Get("TrackHist_reco_all__nFakePixHits");
-    TH1F* nSCTHitsFake50 = (TH1F*) in50->Get("TrackHist_reco_all__nFakeSCTHits");
+					    TH1F* nSiHitsFake50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nFakeSiHits"));
+					    TH1F* nPixHitsFake50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nFakePixHits"));
+    TH1F* nSCTHitsFake50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nFakeSCTHits"));
 
-    TH1F* nSiHitsFake100 = (TH1F*) in100->Get("TrackHist_reco_all__nFakeSiHits");
-    TH1F* nPixHitsFake100 = (TH1F*) in100->Get("TrackHist_reco_all__nFakePixHits");
-    TH1F* nSCTHitsFake100 = (TH1F*) in100->Get("TrackHist_reco_all__nFakeSCTHits");
+    TH1F* nSiHitsFake100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nFakeSiHits"));
+    TH1F* nPixHitsFake100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nFakePixHits"));
+    TH1F* nSCTHitsFake100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nFakeSCTHits"));
 
-    TH1F* nSiHitsFake140 = (TH1F*) in140->Get("TrackHist_reco_all__nFakeSiHits");
-    TH1F* nPixHitsFake140 = (TH1F*) in140->Get("TrackHist_reco_all__nFakePixHits");
-    TH1F* nSCTHitsFake140 = (TH1F*) in140->Get("TrackHist_reco_all__nFakeSCTHits");
+    TH1F* nSiHitsFake140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nFakeSiHits"));
+    TH1F* nPixHitsFake140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nFakePixHits"));
+    TH1F* nSCTHitsFake140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nFakeSCTHits"));
 
-    TH1F* nSiHitsFake200 = (TH1F*) in200->Get("TrackHist_reco_all__nFakeSiHits");
-    TH1F* nPixHitsFake200 = (TH1F*) in200->Get("TrackHist_reco_all__nFakePixHits");
-    TH1F* nSCTHitsFake200 = (TH1F*) in200->Get("TrackHist_reco_all__nFakeSCTHits");
+    TH1F* nSiHitsFake200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nFakeSiHits"));
+    TH1F* nPixHitsFake200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nFakePixHits"));
+    TH1F* nSCTHitsFake200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nFakeSCTHits"));
 
-    TH1F* nSiHitsFake300 = (TH1F*) in300->Get("TrackHist_reco_all__nFakeSiHits");
-    TH1F* nPixHitsFake300 = (TH1F*) in300->Get("TrackHist_reco_all__nFakePixHits");
-    TH1F* nSCTHitsFake300 = (TH1F*) in300->Get("TrackHist_reco_all__nFakeSCTHits");
+    TH1F* nSiHitsFake300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nFakeSiHits"));
+    TH1F* nPixHitsFake300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nFakePixHits"));
+    TH1F* nSCTHitsFake300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nFakeSCTHits"));
     
     nSiHitsFake50->SetLineColor(kCyan);
     nSiHitsFake100->SetLineColor(kBlue);
@@ -770,25 +794,25 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     TCanvas* canv_nPixHitsTrue = new TCanvas();
     TCanvas* canv_nSCTHitsTrue = new TCanvas();
     
-    TH1F* nSiHitsTrue50 = (TH1F*) in50->Get("TrackHist_reco_all__nTrueSiHits");
-    TH1F* nPixHitsTrue50 = (TH1F*) in50->Get("TrackHist_reco_all__nTruePixHits");
-    TH1F* nSCTHitsTrue50 = (TH1F*) in50->Get("TrackHist_reco_all__nTrueSCTHits");
+    TH1F* nSiHitsTrue50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nTrueSiHits"));
+    TH1F* nPixHitsTrue50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nTruePixHits"));
+    TH1F* nSCTHitsTrue50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__nTrueSCTHits"));
 
-    TH1F* nSiHitsTrue100 = (TH1F*) in100->Get("TrackHist_reco_all__nTrueSiHits");
-    TH1F* nPixHitsTrue100 = (TH1F*) in100->Get("TrackHist_reco_all__nTruePixHits");
-    TH1F* nSCTHitsTrue100 = (TH1F*) in100->Get("TrackHist_reco_all__nTrueSCTHits");
+    TH1F* nSiHitsTrue100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nTrueSiHits"));
+    TH1F* nPixHitsTrue100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nTruePixHits"));
+    TH1F* nSCTHitsTrue100 = dynamic_cast<TH1F*>(in100->Get("TrackHist_reco_all__nTrueSCTHits"));
 
-    TH1F* nSiHitsTrue140 = (TH1F*) in140->Get("TrackHist_reco_all__nTrueSiHits");
-    TH1F* nPixHitsTrue140 = (TH1F*) in140->Get("TrackHist_reco_all__nTruePixHits");
-    TH1F* nSCTHitsTrue140 = (TH1F*) in140->Get("TrackHist_reco_all__nTrueSCTHits");
+    TH1F* nSiHitsTrue140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nTrueSiHits"));
+    TH1F* nPixHitsTrue140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nTruePixHits"));
+    TH1F* nSCTHitsTrue140 = dynamic_cast<TH1F*>(in140->Get("TrackHist_reco_all__nTrueSCTHits"));
 
-    TH1F* nSiHitsTrue200 = (TH1F*) in200->Get("TrackHist_reco_all__nTrueSiHits");
-    TH1F* nPixHitsTrue200 = (TH1F*) in200->Get("TrackHist_reco_all__nTruePixHits");
-    TH1F* nSCTHitsTrue200 = (TH1F*) in200->Get("TrackHist_reco_all__nTrueSCTHits");
+    TH1F* nSiHitsTrue200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nTrueSiHits"));
+    TH1F* nPixHitsTrue200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nTruePixHits"));
+    TH1F* nSCTHitsTrue200 = dynamic_cast<TH1F*>(in200->Get("TrackHist_reco_all__nTrueSCTHits"));
 
-    TH1F* nSiHitsTrue300 = (TH1F*) in300->Get("TrackHist_reco_all__nTrueSiHits");
-    TH1F* nPixHitsTrue300 = (TH1F*) in300->Get("TrackHist_reco_all__nTruePixHits");
-    TH1F* nSCTHitsTrue300 = (TH1F*) in300->Get("TrackHist_reco_all__nTrueSCTHits");
+    TH1F* nSiHitsTrue300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nTrueSiHits"));
+    TH1F* nPixHitsTrue300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nTruePixHits"));
+    TH1F* nSCTHitsTrue300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nTrueSCTHits"));
     
     nSiHitsTrue50->SetLineColor(kCyan);
     nSiHitsTrue100->SetLineColor(kBlue);
