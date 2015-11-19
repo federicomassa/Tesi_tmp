@@ -384,18 +384,23 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
 
       effPt50->Draw();
+      effPt50->SetStats(0);
       effPt50->GetYaxis()->SetTitleOffset(1.2);
 
       effPt100->Draw("same");
+      effPt100->SetStats(0);
       effPt100->GetYaxis()->SetTitleOffset(1.2);
 
       effPt140->Draw("same");
+      effPt140->SetStats(0);
       effPt140->GetYaxis()->SetTitleOffset(1.2);
 
       effPt200->Draw("same");
+      effPt200->SetStats(0);
       effPt200->GetYaxis()->SetTitleOffset(1.2);
 
       effPt300->Draw("same");
+      effPt300->SetStats(0);
       effPt300->GetYaxis()->SetTitleOffset(1.2);
 
       // mg_effPt->GetYaxis()->SetRangeUser(0.0,0.05);
@@ -431,18 +436,23 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
 
       effEta50->Draw();
+      effEta50->SetStats(0);
       effEta50->GetYaxis()->SetTitleOffset(1.2);
 
       effEta100->Draw("same");
+      effEta100->SetStats(0);
       effEta100->GetYaxis()->SetTitleOffset(1.2);
 
       effEta140->Draw("same");
+      effEta140->SetStats(0);
       effEta140->GetYaxis()->SetTitleOffset(1.2);
 
       effEta200->Draw("same");
+      effEta200->SetStats(0);
       effEta200->GetYaxis()->SetTitleOffset(1.2);
 
       effEta300->Draw("same");
+      effEta300->SetStats(0);
       effEta300->GetYaxis()->SetTitleOffset(1.2);
 
       // mg_effEta->GetYaxis()->SetRangeUser(0.0,0.05);
@@ -478,18 +488,23 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
 
       effPhi50->Draw();
+      effPhi50->SetStats(0);
       effPhi50->GetYaxis()->SetTitleOffset(1.2);
 
       effPhi100->Draw("same");
+      effPhi100->SetStats(0);
       effPhi100->GetYaxis()->SetTitleOffset(1.2);
 
       effPhi140->Draw("same");
+      effPhi140->SetStats(0);
       effPhi140->GetYaxis()->SetTitleOffset(1.2);
 
       effPhi200->Draw("same");
+      effPhi200->SetStats(0);
       effPhi200->GetYaxis()->SetTitleOffset(1.2);
 
       effPhi300->Draw("same");
+      effPhi300->SetStats(0);
       effPhi300->GetYaxis()->SetTitleOffset(1.2);
 
       // mg_effPhi->GetYaxis()->SetRangeUser(0.0,0.05);
@@ -546,18 +561,23 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     canv_nSiHits->cd();
   
     nSiHits50->Draw();
+    nSiHits50->SetStats(0);
     nSiHits50->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHits100->Draw("same");
+    nSiHits100->SetStats(0);
     nSiHits100->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHits140->Draw("same");
+    nSiHits140->SetStats(0);
     nSiHits140->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHits200->Draw("same");
+    nSiHits200->SetStats(0);
     nSiHits200->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHits300->Draw("same");
+    nSiHits300->SetStats(0);
     nSiHits300->GetYaxis()->SetTitleOffset(1.2);
     
     TLegend* leg_nSiHits = new TLegend(0.65,0.6,0.85,0.4);
@@ -582,21 +602,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     nPixHits300->SetLineColor(kRed);
     
     canv_nPixHits->cd();
-  
+ 
     nPixHits50->Draw();
+    nPixHits50->SetStats(0);
     nPixHits50->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHits100->Draw("same");
+    nPixHits100->SetStats(0);
     nPixHits100->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHits140->Draw("same");
+    nPixHits140->SetStats(0);
     nPixHits140->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHits200->Draw("same");
+    nPixHits200->SetStats(0);
     nPixHits200->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHits300->Draw("same");
+    nPixHits300->SetStats(0);
     nPixHits300->GetYaxis()->SetTitleOffset(1.2);
+    
     
     TLegend* leg_nPixHits = new TLegend(0.65,0.6,0.85,0.4);
     leg_nPixHits->SetFillColor(0);
@@ -620,22 +646,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     nSCTHits300->SetLineColor(kRed);
     
     canv_nSCTHits->cd();
-  
+ 
     nSCTHits50->Draw();
+    nSCTHits50->SetStats(0);
     nSCTHits50->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHits100->Draw("same");
+    nSCTHits100->SetStats(0);
     nSCTHits100->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHits140->Draw("same");
+    nSCTHits140->SetStats(0);
     nSCTHits140->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHits200->Draw("same");
+    nSCTHits200->SetStats(0);
     nSCTHits200->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHits300->Draw("same");
+    nSCTHits300->SetStats(0);
     nSCTHits300->GetYaxis()->SetTitleOffset(1.2);
-    
+     
     TLegend* leg_nSCTHits = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSCTHits->SetFillColor(0);
     leg_nSCTHits->AddEntry(nSCTHits50, "PU 50", "lp");
@@ -683,22 +714,28 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     nSiHitsFake300->SetLineColor(kRed);
     
     canv_nSiHitsFake->cd();
-  
+ 
     nSiHitsFake50->Draw();
+    nSiHitsFake50->SetStats(0);
     nSiHitsFake50->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsFake100->Draw("same");
+    nSiHitsFake100->SetStats(0);
     nSiHitsFake100->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsFake140->Draw("same");
+    nSiHitsFake140->SetStats(0);
     nSiHitsFake140->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsFake200->Draw("same");
+    nSiHitsFake200->SetStats(0);
     nSiHitsFake200->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsFake300->Draw("same");
+    nSiHitsFake300->SetStats(0);
     nSiHitsFake300->GetYaxis()->SetTitleOffset(1.2);
-    
+ 
+     
     TLegend* leg_nSiHitsFake = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSiHitsFake->SetFillColor(0);
     leg_nSiHitsFake->AddEntry(nSiHitsFake50, "PU 50", "lp");
@@ -721,21 +758,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     nPixHitsFake300->SetLineColor(kRed);
     
     canv_nPixHitsFake->cd();
-  
+ 
     nPixHitsFake50->Draw();
+    nPixHitsFake50->SetStats(0);
     nPixHitsFake50->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsFake100->Draw("same");
+    nPixHitsFake100->SetStats(0);
     nPixHitsFake100->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsFake140->Draw("same");
+    nPixHitsFake140->SetStats(0);
     nPixHitsFake140->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsFake200->Draw("same");
+    nPixHitsFake200->SetStats(0);
     nPixHitsFake200->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsFake300->Draw("same");
+    nPixHitsFake300->SetStats(0);
     nPixHitsFake300->GetYaxis()->SetTitleOffset(1.2);
+  
     
     TLegend* leg_nPixHitsFake = new TLegend(0.65,0.6,0.85,0.4);
     leg_nPixHitsFake->SetFillColor(0);
@@ -759,22 +802,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     nSCTHitsFake300->SetLineColor(kRed);
     
     canv_nSCTHitsFake->cd();
-  
+ 
     nSCTHitsFake50->Draw();
+    nSCTHitsFake50->SetStats(0);
     nSCTHitsFake50->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsFake100->Draw("same");
+    nSCTHitsFake100->SetStats(0);
     nSCTHitsFake100->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsFake140->Draw("same");
+    nSCTHitsFake140->SetStats(0);
     nSCTHitsFake140->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsFake200->Draw("same");
+    nSCTHitsFake200->SetStats(0);
     nSCTHitsFake200->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsFake300->Draw("same");
+    nSCTHitsFake300->SetStats(0);
     nSCTHitsFake300->GetYaxis()->SetTitleOffset(1.2);
-    
+     
     TLegend* leg_nSCTHitsFake = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSCTHitsFake->SetFillColor(0);
     leg_nSCTHitsFake->AddEntry(nSCTHitsFake50, "PU 50", "lp");
@@ -821,22 +869,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     nSiHitsTrue300->SetLineColor(kRed);
     
     canv_nSiHitsTrue->cd();
-  
+ 
     nSiHitsTrue50->Draw();
+    nSiHitsTrue50->SetStats(0);
     nSiHitsTrue50->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsTrue100->Draw("same");
+    nSiHitsTrue100->SetStats(0);
     nSiHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsTrue140->Draw("same");
+    nSiHitsTrue140->SetStats(0);
     nSiHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsTrue200->Draw("same");
+    nSiHitsTrue200->SetStats(0);
     nSiHitsTrue200->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsTrue300->Draw("same");
+    nSiHitsTrue300->SetStats(0);
     nSiHitsTrue300->GetYaxis()->SetTitleOffset(1.2);
-    
+     
     TLegend* leg_nSiHitsTrue = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSiHitsTrue->SetFillColor(0);
     leg_nSiHitsTrue->AddEntry(nSiHitsTrue50, "PU 50", "lp");
@@ -859,21 +912,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     nPixHitsTrue300->SetLineColor(kRed);
     
     canv_nPixHitsTrue->cd();
-  
+ 
     nPixHitsTrue50->Draw();
+    nPixHitsTrue50->SetStats(0);
     nPixHitsTrue50->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsTrue100->Draw("same");
+    nPixHitsTrue100->SetStats(0);
     nPixHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsTrue140->Draw("same");
+    nPixHitsTrue140->SetStats(0);
     nPixHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsTrue200->Draw("same");
+    nPixHitsTrue200->SetStats(0);
     nPixHitsTrue200->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsTrue300->Draw("same");
+    nPixHitsTrue300->SetStats(0);
     nPixHitsTrue300->GetYaxis()->SetTitleOffset(1.2);
+ 
     
     TLegend* leg_nPixHitsTrue = new TLegend(0.65,0.6,0.85,0.4);
     leg_nPixHitsTrue->SetFillColor(0);
@@ -897,22 +956,28 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     nSCTHitsTrue300->SetLineColor(kRed);
     
     canv_nSCTHitsTrue->cd();
-  
+ 
+
     nSCTHitsTrue50->Draw();
+    nSCTHitsTrue50->SetStats(0);
     nSCTHitsTrue50->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsTrue100->Draw("same");
+    nSCTHitsTrue100->SetStats(0);
     nSCTHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsTrue140->Draw("same");
+    nSCTHitsTrue140->SetStats(0);
     nSCTHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsTrue200->Draw("same");
+    nSCTHitsTrue200->SetStats(0);
     nSCTHitsTrue200->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsTrue300->Draw("same");
+    nSCTHitsTrue300->SetStats(0);
     nSCTHitsTrue300->GetYaxis()->SetTitleOffset(1.2);
-    
+  
     TLegend* leg_nSCTHitsTrue = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSCTHitsTrue->SetFillColor(0);
     leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue50, "PU 50", "lp");
