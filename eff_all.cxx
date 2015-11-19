@@ -19,14 +19,6 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
   TFile* in200 = new TFile((sample_radix + "200.root").c_str());
   TFile* in300 = new TFile((sample_radix + "300.root").c_str());
 
-  TGraphErrors* biasPt50 = (TGraphErrors*) in50->Get("biasPt_Eta");
-  TGraphErrors* biasPt100 = (TGraphErrors*) in100->Get("biasPt_Eta");
-  TGraphErrors* biasPt140 = (TGraphErrors*) in140->Get("biasPt_Eta");
-  TGraphErrors* biasPt200 = (TGraphErrors*) in200->Get("biasPt_Eta");
-  TGraphErrors* biasPt300 = (TGraphErrors*) in300->Get("biasPt_Eta");
-
-  TMultiGraph* mg = new TMultiGraph();
-
   /// CHECK IF TARGET WAS MATCHED CORRECTLY ///
   TH1F* hist_check50 = dynamic_cast<TH1F*>(in50->Get("TrackHist_reco_all__pt"));
   if (hist_check50->GetEntries() == 0) std::cout << "WARNING: " + sample + "pu50 was not correctly target matched" << std::endl;
@@ -51,6 +43,14 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   //////////////
 
+  TGraphErrors* biasPt50 = dynamic_cast<TGraphErrors*>( in50->Get("biasPt_Eta"));
+  TGraphErrors* biasPt100 = dynamic_cast<TGraphErrors*>( in100->Get("biasPt_Eta"));
+  TGraphErrors* biasPt140 = dynamic_cast<TGraphErrors*>( in140->Get("biasPt_Eta"));
+  TGraphErrors* biasPt200 = dynamic_cast<TGraphErrors*>( in200->Get("biasPt_Eta"));
+  TGraphErrors* biasPt300 = dynamic_cast<TGraphErrors*>( in300->Get("biasPt_Eta"));
+
+  TMultiGraph* mg = new TMultiGraph();
+
   biasPt50->SetLineColor(kCyan);
   biasPt100->SetLineColor(kBlue);
   biasPt140->SetLineColor(kGreen);
@@ -63,7 +63,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
   mg->Add(biasPt200);
   mg->Add(biasPt300);
 
-  mg->SetTitle("#sigma(p_{T}) vs |#eta|; |#eta|; #sigma(p_{T}) [MeV]");
+  mg->SetTitle("#sigma(p_{T}) vs |#eta|; Truth |#eta|; #sigma(p_{T}) [MeV]");
 
   TCanvas* canv_pt = new TCanvas();
   mg->Draw("APE");
@@ -87,11 +87,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   ////////////////////////////////
 
-  TGraphErrors* biasD050 = (TGraphErrors*) in50->Get("biasD0_Eta");
-  TGraphErrors* biasD0100 = (TGraphErrors*) in100->Get("biasD0_Eta");
-  TGraphErrors* biasD0140 = (TGraphErrors*) in140->Get("biasD0_Eta");
-  TGraphErrors* biasD0200 = (TGraphErrors*) in200->Get("biasD0_Eta");
-  TGraphErrors* biasD0300 = (TGraphErrors*) in300->Get("biasD0_Eta");
+  TGraphErrors* biasD050 = dynamic_cast<TGraphErrors*>( in50->Get("biasD0_Eta"));
+  TGraphErrors* biasD0100 = dynamic_cast<TGraphErrors*>( in100->Get("biasD0_Eta"));
+  TGraphErrors* biasD0140 = dynamic_cast<TGraphErrors*>( in140->Get("biasD0_Eta"));
+  TGraphErrors* biasD0200 = dynamic_cast<TGraphErrors*>( in200->Get("biasD0_Eta"));
+  TGraphErrors* biasD0300 = dynamic_cast<TGraphErrors*>( in300->Get("biasD0_Eta"));
 
   TMultiGraph* mg2 = new TMultiGraph();
 
@@ -107,7 +107,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
   mg2->Add(biasD0200);
   mg2->Add(biasD0300);
 
-  mg2->SetTitle("#sigma(D0) vs |#eta|; |#eta|; #sigma(D0) [mm]");
+  mg2->SetTitle("#sigma(D0) vs |#eta|;Truth |#eta|; #sigma(D0) [mm]");
 
   TCanvas* canv_d0 = new TCanvas();
   mg2->Draw("APE");
@@ -133,11 +133,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
 ////////////////////////////////
 
-  TGraphErrors* biasZ050 = (TGraphErrors*) in50->Get("biasZ0_Eta");
-  TGraphErrors* biasZ0100 = (TGraphErrors*) in100->Get("biasZ0_Eta");
-  TGraphErrors* biasZ0140 = (TGraphErrors*) in140->Get("biasZ0_Eta");
-  TGraphErrors* biasZ0200 = (TGraphErrors*) in200->Get("biasZ0_Eta");
-  TGraphErrors* biasZ0300 = (TGraphErrors*) in300->Get("biasZ0_Eta");
+  TGraphErrors* biasZ050 = dynamic_cast<TGraphErrors*>( in50->Get("biasZ0_Eta"));
+  TGraphErrors* biasZ0100 = dynamic_cast<TGraphErrors*>( in100->Get("biasZ0_Eta"));
+  TGraphErrors* biasZ0140 = dynamic_cast<TGraphErrors*>( in140->Get("biasZ0_Eta"));
+  TGraphErrors* biasZ0200 = dynamic_cast<TGraphErrors*>( in200->Get("biasZ0_Eta"));
+  TGraphErrors* biasZ0300 = dynamic_cast<TGraphErrors*>( in300->Get("biasZ0_Eta"));
 
   TMultiGraph* mg3 = new TMultiGraph();
 
@@ -153,7 +153,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
   mg3->Add(biasZ0200);
   mg3->Add(biasZ0300);
 
-  mg3->SetTitle("#sigma(Z0) vs |#eta|; |#eta|; #sigma(Z0) [mm]");
+  mg3->SetTitle("#sigma(Z0) vs |#eta|;Truth |#eta|; #sigma(Z0) [mm]");
 
   TCanvas* canv_z0 = new TCanvas();
   mg3->Draw("APE");
@@ -178,11 +178,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
   
 ////////////////////////////////
 
-  TGraphErrors* biasQPt50 = (TGraphErrors*) in50->Get("biasQPt_Eta");
-  TGraphErrors* biasQPt100 = (TGraphErrors*) in100->Get("biasQPt_Eta");
-  TGraphErrors* biasQPt140 = (TGraphErrors*) in140->Get("biasQPt_Eta");
-  TGraphErrors* biasQPt200 = (TGraphErrors*) in200->Get("biasQPt_Eta");
-  TGraphErrors* biasQPt300 = (TGraphErrors*) in300->Get("biasQPt_Eta");
+  TGraphErrors* biasQPt50 = dynamic_cast<TGraphErrors*>( in50->Get("biasQPt_Eta"));
+  TGraphErrors* biasQPt100 = dynamic_cast<TGraphErrors*>( in100->Get("biasQPt_Eta"));
+  TGraphErrors* biasQPt140 = dynamic_cast<TGraphErrors*>( in140->Get("biasQPt_Eta"));
+  TGraphErrors* biasQPt200 = dynamic_cast<TGraphErrors*>( in200->Get("biasQPt_Eta"));
+  TGraphErrors* biasQPt300 = dynamic_cast<TGraphErrors*>( in300->Get("biasQPt_Eta"));
 
   TMultiGraph* mg4 = new TMultiGraph();
 
@@ -198,7 +198,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
   mg4->Add(biasQPt200);
   mg4->Add(biasQPt300);
 
-  mg4->SetTitle("p_{T} x #sigma(q/p_{T}) vs |#eta|; |#eta|; p_{T} x #sigma(q/p_{T})");
+  mg4->SetTitle("p_{T} x #sigma(q/p_{T}) vs |#eta|;Truth |#eta|; p_{T} x #sigma(q/p_{T})");
 
   TCanvas* canv_qpt = new TCanvas();
   mg4->Draw("APE");
@@ -223,11 +223,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
 ////////////////////////////////
 
-  TGraphErrors* biasPhi50 = (TGraphErrors*) in50->Get("biasPhi_Eta");
-  TGraphErrors* biasPhi100 = (TGraphErrors*) in100->Get("biasPhi_Eta");
-  TGraphErrors* biasPhi140 = (TGraphErrors*) in140->Get("biasPhi_Eta");
-  TGraphErrors* biasPhi200 = (TGraphErrors*) in200->Get("biasPhi_Eta");
-  TGraphErrors* biasPhi300 = (TGraphErrors*) in300->Get("biasPhi_Eta");
+  TGraphErrors* biasPhi50 = dynamic_cast<TGraphErrors*>( in50->Get("biasPhi_Eta"));
+  TGraphErrors* biasPhi100 = dynamic_cast<TGraphErrors*>( in100->Get("biasPhi_Eta"));
+  TGraphErrors* biasPhi140 = dynamic_cast<TGraphErrors*>( in140->Get("biasPhi_Eta"));
+  TGraphErrors* biasPhi200 = dynamic_cast<TGraphErrors*>( in200->Get("biasPhi_Eta"));
+  TGraphErrors* biasPhi300 = dynamic_cast<TGraphErrors*>( in300->Get("biasPhi_Eta"));
 
   TMultiGraph* mg5 = new TMultiGraph();
 
@@ -243,7 +243,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
   mg5->Add(biasPhi200);
   mg5->Add(biasPhi300);
 
-  mg5->SetTitle("#sigma(Phi) vs |#eta|; |#eta|; #sigma(Phi)");
+  mg5->SetTitle("#sigma(Phi) vs |#eta|;Truth |#eta|; #sigma(Phi)");
 
   TCanvas* canv_phi = new TCanvas();
   mg5->Draw("APE");
@@ -270,11 +270,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   if (SaveFakePlots) {
 
-    TGraphErrors* fakeGun50 = (TGraphErrors*) in50->Get("fakeGun_average");
-    TGraphErrors* fakeGun100 = (TGraphErrors*) in100->Get("fakeGun_average");
-    TGraphErrors* fakeGun140 = (TGraphErrors*) in140->Get("fakeGun_average");
-    TGraphErrors* fakeGun200 = (TGraphErrors*) in200->Get("fakeGun_average");
-    TGraphErrors* fakeGun300 = (TGraphErrors*) in300->Get("fakeGun_average");
+    TGraphErrors* fakeGun50 = dynamic_cast<TGraphErrors*>( in50->Get("fakeGun_average"));
+    TGraphErrors* fakeGun100 = dynamic_cast<TGraphErrors*>( in100->Get("fakeGun_average"));
+    TGraphErrors* fakeGun140 = dynamic_cast<TGraphErrors*>( in140->Get("fakeGun_average"));
+    TGraphErrors* fakeGun200 = dynamic_cast<TGraphErrors*>( in200->Get("fakeGun_average"));
+    TGraphErrors* fakeGun300 = dynamic_cast<TGraphErrors*>( in300->Get("fakeGun_average"));
 
     TCanvas* canv_fakeGun = new TCanvas();
     canv_fakeGun->SetName("canv_fakeGun");
@@ -294,7 +294,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     mgFakeGun->Add(fakeGun200);
     mgFakeGun->Add(fakeGun300);
     
-    mgFakeGun->SetTitle("Fake Gun Probability; |#eta|; Fake probability");
+    mgFakeGun->SetTitle("Fake Gun Probability;Truth |#eta|; Fake probability");
     
     mgFakeGun->Draw("APE");
     mgFakeGun->GetYaxis()->SetTitleOffset(1.2);
@@ -314,11 +314,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
     ///////// All fakes ///////////
 
-    TGraphErrors* fake50 = (TGraphErrors*) in50->Get("fake_average");
-    TGraphErrors* fake100 = (TGraphErrors*) in100->Get("fake_average");
-    TGraphErrors* fake140 = (TGraphErrors*) in140->Get("fake_average");
-    TGraphErrors* fake200 = (TGraphErrors*) in200->Get("fake_average");
-    TGraphErrors* fake300 = (TGraphErrors*) in300->Get("fake_average");
+    TGraphErrors* fake50 = dynamic_cast<TGraphErrors*>( in50->Get("fake_average"));
+    TGraphErrors* fake100 = dynamic_cast<TGraphErrors*>( in100->Get("fake_average"));
+    TGraphErrors* fake140 = dynamic_cast<TGraphErrors*>( in140->Get("fake_average"));
+    TGraphErrors* fake200 = dynamic_cast<TGraphErrors*>( in200->Get("fake_average"));
+    TGraphErrors* fake300 = dynamic_cast<TGraphErrors*>( in300->Get("fake_average"));
 
     TCanvas* canv_fake = new TCanvas();
     canv_fake->SetName("canv_fake");
@@ -338,7 +338,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     mgFake->Add(fake200);
     mgFake->Add(fake300);
     
-    mgFake->SetTitle("Fake  Rate per event; |#eta|; Fake rate");
+    mgFake->SetTitle("Fake  Rate per event;Truth |#eta|; Fake rate");
     
     mgFake->Draw("APE");
     mgFake->GetYaxis()->SetTitleOffset(1.2);
@@ -370,11 +370,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
       TCanvas* canv_effPt = new TCanvas();
 
-      TH1F* effPt50 = (TH1F*) in50->Get("eff_ptGun");
-      TH1F* effPt100 = (TH1F*) in100->Get("eff_ptGun");
-      TH1F* effPt140 = (TH1F*) in140->Get("eff_ptGun");
-      TH1F* effPt200 = (TH1F*) in200->Get("eff_ptGun");
-      TH1F* effPt300 = (TH1F*) in300->Get("eff_ptGun");
+      TH1F* effPt50 = dynamic_cast<TH1F*>( in50->Get("eff_ptGun"));
+      TH1F* effPt100 = dynamic_cast<TH1F*>( in100->Get("eff_ptGun"));
+      TH1F* effPt140 = dynamic_cast<TH1F*>( in140->Get("eff_ptGun"));
+      TH1F* effPt200 = dynamic_cast<TH1F*>( in200->Get("eff_ptGun"));
+      TH1F* effPt300 = dynamic_cast<TH1F*>( in300->Get("eff_ptGun"));
       
       effPt50->SetLineColor(kCyan);
       effPt100->SetLineColor(kBlue);
@@ -422,11 +422,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
       TCanvas* canv_effEta = new TCanvas();
 
-      TH1F* effEta50 = (TH1F*) in50->Get("eff_eta");
-      TH1F* effEta100 = (TH1F*) in100->Get("eff_eta");
-      TH1F* effEta140 = (TH1F*) in140->Get("eff_eta");
-      TH1F* effEta200 = (TH1F*) in200->Get("eff_eta");
-      TH1F* effEta300 = (TH1F*) in300->Get("eff_eta");
+      TH1F* effEta50 = dynamic_cast<TH1F*>( in50->Get("eff_eta"));
+      TH1F* effEta100 = dynamic_cast<TH1F*>( in100->Get("eff_eta"));
+      TH1F* effEta140 = dynamic_cast<TH1F*>( in140->Get("eff_eta"));
+      TH1F* effEta200 = dynamic_cast<TH1F*>( in200->Get("eff_eta"));
+      TH1F* effEta300 = dynamic_cast<TH1F*>( in300->Get("eff_eta"));
       
       effEta50->SetLineColor(kCyan);
       effEta100->SetLineColor(kBlue);
@@ -474,11 +474,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
       TCanvas* canv_effPhi = new TCanvas();
 
-      TH1F* effPhi50 = (TH1F*) in50->Get("eff_phi");
-      TH1F* effPhi100 = (TH1F*) in100->Get("eff_phi");
-      TH1F* effPhi140 = (TH1F*) in140->Get("eff_phi");
-      TH1F* effPhi200 = (TH1F*) in200->Get("eff_phi");
-      TH1F* effPhi300 = (TH1F*) in300->Get("eff_phi");
+      TH1F* effPhi50 = dynamic_cast<TH1F*>( in50->Get("eff_phi"));
+      TH1F* effPhi100 = dynamic_cast<TH1F*>( in100->Get("eff_phi"));
+      TH1F* effPhi140 = dynamic_cast<TH1F*>( in140->Get("eff_phi"));
+      TH1F* effPhi200 = dynamic_cast<TH1F*>( in200->Get("eff_phi"));
+      TH1F* effPhi300 = dynamic_cast<TH1F*>( in300->Get("eff_phi"));
       
       effPhi50->SetLineColor(kCyan);
       effPhi100->SetLineColor(kBlue);

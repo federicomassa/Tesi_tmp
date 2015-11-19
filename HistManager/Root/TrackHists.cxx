@@ -270,6 +270,8 @@ void TrackHists::FillHists(const xAOD::TrackParticle* trk, float weight) const {
   float d0signif = trk->d0()/d0err;
   float z0err = sqrt(covTrk(1,1));
 
+  const xAOD::TruthParticle *truthParticle = xAOD::TrackHelper::truthParticle(trk);
+  
   /* track parameterization */
   m_qoverp       ->Fill(trk->qOverP(),weight); 
   m_pt           ->Fill(trk->pt()*1e-3,weight); 
@@ -279,7 +281,7 @@ void TrackHists::FillHists(const xAOD::TrackParticle* trk, float weight) const {
   m_d0           ->Fill(trk->d0(),weight); 
   m_z0           ->Fill(trk->z0(),weight); 
   m_phi          ->Fill(trk->phi(),weight); 
-  
+
   float signQ = 0.0;
   if (trk->isAvailable<int>("signToQuark")) { signQ = trk->auxdata<int>("signToQuark"); }
 
@@ -331,29 +333,34 @@ void TrackHists::FillHists(const xAOD::TrackParticle* trk, float weight) const {
   m_nSCTHits -> Fill(1.0*nSCTHits); 
   m_nSiHits  -> Fill(1.0*nSiHits);
   
-  m_eta_nPixHits -> Fill(TMath::Abs(trk->eta()),1.0*nPixHits);
+  if (truthParticle) {
+  m_eta_nPixHits -> Fill(TMath::Abs(truthParticle->eta()),1.0*nPixHits);
   m_eta_nSCTHits -> Fill(TMath::Abs(trk->eta()),1.0*nSCTHits); 
   m_eta_nSiHits  -> Fill(TMath::Abs(trk->eta()),1.0*nSiHits);
-  
+  }
 
   if (!xAOD::TrackHelper::isFake(trk)) {
     m_nTruePixHits -> Fill(1.0*nPixHits);
     m_nTrueSCTHits -> Fill(1.0*nSCTHits); 
     m_nTrueSiHits  -> Fill(1.0*nSiHits);  
 
+    if (truthParticle) {
     m_eta_nTruePixHits -> Fill(TMath::Abs(trk->eta()),1.0*nPixHits);
     m_eta_nTrueSCTHits -> Fill(TMath::Abs(trk->eta()),1.0*nSCTHits); 
     m_eta_nTrueSiHits  -> Fill(TMath::Abs(trk->eta()),1.0*nSiHits);
+    }
   }
 
   else {
     m_nFakePixHits -> Fill(1.0*nPixHits);
     m_nFakeSCTHits -> Fill(1.0*nSCTHits); 
     m_nFakeSiHits  -> Fill(1.0*nSiHits);  
-
+    
+    if (truthParticle) {
     m_eta_nFakePixHits -> Fill(TMath::Abs(trk->eta()),1.0*nPixHits);
     m_eta_nFakeSCTHits -> Fill(TMath::Abs(trk->eta()),1.0*nSCTHits); 
     m_eta_nFakeSiHits  -> Fill(TMath::Abs(trk->eta()),1.0*nSiHits);
+    }
   }  
 
 
@@ -404,8 +411,6 @@ void TrackHists::FillHists(const xAOD::TrackParticle* trk, float weight) const {
   // Efficiency and fake study
   //===========================
 
-  const xAOD::TruthParticle *truthParticle = xAOD::TrackHelper::truthParticle(trk);
-
   if (truthParticle) {
 
     if (truthParticle->hasProdVtx()) {
@@ -446,125 +451,127 @@ void TrackHists::FillHists(const xAOD::TrackParticle* trk, float weight) const {
     m_biasD0  -> Fill(sigD0);
     m_biasZ0  -> Fill(sigZ0);
 
-    if (TMath::Abs(trk->eta())<0.2) {
+    //changed from trk->eta() to truthParticle->eta()    
+    if (TMath::Abs(truthParticle->eta())<0.2) {
       m_biasPt_bin1  -> Fill(sigPt);
       m_biasQPt_bin1 -> Fill(sigQPt);
       m_biasPhi_bin1 -> Fill(sigPhi);
       m_biasD0_bin1  -> Fill(sigD0);
       m_biasZ0_bin1  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<0.4) {
+    else if (TMath::Abs(truthParticle->eta())<0.4) {
       m_biasPt_bin2  -> Fill(sigPt);
       m_biasQPt_bin2 -> Fill(sigQPt);
       m_biasPhi_bin2 -> Fill(sigPhi);
       m_biasD0_bin2  -> Fill(sigD0);
       m_biasZ0_bin2  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<0.6) {
+    else if (TMath::Abs(truthParticle->eta())<0.6) {
       m_biasPt_bin3  -> Fill(sigPt);
       m_biasQPt_bin3 -> Fill(sigQPt);
       m_biasPhi_bin3 -> Fill(sigPhi);
       m_biasD0_bin3  -> Fill(sigD0);
       m_biasZ0_bin3  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<0.8) {
+    else if (TMath::Abs(truthParticle->eta())<0.8) {
       m_biasPt_bin4  -> Fill(sigPt);
       m_biasQPt_bin4 -> Fill(sigQPt);
       m_biasPhi_bin4 -> Fill(sigPhi);
       m_biasD0_bin4  -> Fill(sigD0);
       m_biasZ0_bin4  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<1.0) {
+    else if (TMath::Abs(truthParticle->eta())<1.0) {
       m_biasPt_bin5  -> Fill(sigPt);
       m_biasQPt_bin5 -> Fill(sigQPt);
       m_biasPhi_bin5 -> Fill(sigPhi);
       m_biasD0_bin5  -> Fill(sigD0);
       m_biasZ0_bin5  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<1.2) {
+    else if (TMath::Abs(truthParticle->eta())<1.2) {
       m_biasPt_bin6  -> Fill(sigPt);
       m_biasQPt_bin6 -> Fill(sigQPt);
       m_biasPhi_bin6 -> Fill(sigPhi);
       m_biasD0_bin6  -> Fill(sigD0);
       m_biasZ0_bin6  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<1.4) {
+    else if (TMath::Abs(truthParticle->eta())<1.4) {
       m_biasPt_bin7  -> Fill(sigPt);
       m_biasQPt_bin7 -> Fill(sigQPt);
       m_biasPhi_bin7 -> Fill(sigPhi);
       m_biasD0_bin7  -> Fill(sigD0);
       m_biasZ0_bin7  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<1.6) {
+    else if (TMath::Abs(truthParticle->eta())<1.6) {
       m_biasPt_bin8  -> Fill(sigPt);
       m_biasQPt_bin8 -> Fill(sigQPt);
       m_biasPhi_bin8 -> Fill(sigPhi);
       m_biasD0_bin8  -> Fill(sigD0);
       m_biasZ0_bin8  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<1.8) {
+    else if (TMath::Abs(truthParticle->eta())<1.8) {
       m_biasPt_bin9  -> Fill(sigPt);
       m_biasQPt_bin9 -> Fill(sigQPt);
       m_biasPhi_bin9 -> Fill(sigPhi);
       m_biasD0_bin9  -> Fill(sigD0);
       m_biasZ0_bin9  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<2.0) {
+    else if (TMath::Abs(truthParticle->eta())<2.0) {
       m_biasPt_bin10  -> Fill(sigPt);
       m_biasQPt_bin10 -> Fill(sigQPt);
       m_biasPhi_bin10 -> Fill(sigPhi);
       m_biasD0_bin10  -> Fill(sigD0);
       m_biasZ0_bin10  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<2.2) {
+    else if (TMath::Abs(truthParticle->eta())<2.2) {
       m_biasPt_bin11  -> Fill(sigPt);
       m_biasQPt_bin11 -> Fill(sigQPt);
       m_biasPhi_bin11 -> Fill(sigPhi);
       m_biasD0_bin11  -> Fill(sigD0);
       m_biasZ0_bin11  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<2.4) {
+    else if (TMath::Abs(truthParticle->eta())<2.4) {
       m_biasPt_bin12  -> Fill(sigPt);
       m_biasQPt_bin12 -> Fill(sigQPt);
       m_biasPhi_bin12 -> Fill(sigPhi);
       m_biasD0_bin12  -> Fill(sigD0);
       m_biasZ0_bin12  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<2.6) {
+    else if (TMath::Abs(truthParticle->eta())<2.6) {
       m_biasPt_bin13  -> Fill(sigPt);
       m_biasQPt_bin13 -> Fill(sigQPt);
       m_biasPhi_bin13 -> Fill(sigPhi);
       m_biasD0_bin13  -> Fill(sigD0);
       m_biasZ0_bin13  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<2.8) {
+    else if (TMath::Abs(truthParticle->eta())<2.8) {
       m_biasPt_bin14  -> Fill(sigPt);
       m_biasQPt_bin14 -> Fill(sigQPt);
       m_biasPhi_bin14 -> Fill(sigPhi);
       m_biasD0_bin14  -> Fill(sigD0);
       m_biasZ0_bin14  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<3.0) {
+    else if (TMath::Abs(truthParticle->eta())<3.0) {
       m_biasPt_bin15  -> Fill(sigPt);
       m_biasQPt_bin15 -> Fill(sigQPt);
       m_biasPhi_bin15 -> Fill(sigPhi);
       m_biasD0_bin15  -> Fill(sigD0);
       m_biasZ0_bin15  -> Fill(sigZ0);
     }
-    else if (TMath::Abs(trk->eta())<3.2) {
+    else if (TMath::Abs(truthParticle->eta())<3.2) {
       m_biasPt_bin16  -> Fill(sigPt);
       m_biasQPt_bin16 -> Fill(sigQPt);
       m_biasPhi_bin16 -> Fill(sigPhi);
       m_biasD0_bin16  -> Fill(sigD0);
       m_biasZ0_bin16  -> Fill(sigZ0);
     }
-
+  
     int bin = TMath::FloorNint(TMath::Abs(truthParticle->eta())/3.2*float(m_FakeBin));
     if (xAOD::TrackHelper::isFake(trk)) m_FakeGunVsEta.at(bin)->Fill(1.0);
     else m_FakeGunVsEta.at(bin)->Fill(0.0);
-      
+  
 
   }
+
 
   if (trk->isAvailable<float>("matchedDR")) {
     bool passCut = false;

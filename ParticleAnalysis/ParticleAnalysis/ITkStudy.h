@@ -42,6 +42,11 @@ public:
   xAOD::TEvent *m_event;  //!
   int m_eventCounter;     //!
 
+  float m_CUTS_trkHist_all_PtMIN; //!
+  float m_CUTS_trkHist_all_PtMAX; //!
+  float m_CUTS_truHist_all_PtMIN; //!
+  float m_CUTS_truHist_all_PtMAX; //!
+
   TrackHists*       trkHist_all; //!
   TruthHists*       truHist_all; //!
   TruthHists*       truHist_stable; //!

@@ -106,6 +106,12 @@ EL::StatusCode ITkStudy::changeInput(bool /* firstFile */) {
 }
 
 EL::StatusCode ITkStudy::initialize() {
+  
+  
+  m_CUTS_trkHist_all_PtMIN = 2000.0; 
+  m_CUTS_trkHist_all_PtMAX = 200000.0;
+  m_CUTS_truHist_all_PtMIN = 2000.0; 
+  m_CUTS_truHist_all_PtMAX = 200000.0;
 
   m_event = wk()->xaodEvent();
 
@@ -121,7 +127,7 @@ EL::StatusCode ITkStudy::initialize() {
 EL::StatusCode ITkStudy::execute() {
   
   // print every 1000 events, so we know where we are:
-  if( (m_eventCounter % 1000) ==0 ) Info("execute()", "Event number = %i", m_eventCounter );
+  if( (m_eventCounter % 2000) ==0 ) Info("execute()", "Event number = %i", m_eventCounter );
 
   //for mu100_pu50-100-200-300
   // int m_eventSkip1 = 4957;
@@ -421,6 +427,7 @@ EL::StatusCode ITkStudy::execute() {
       }
     }
   }
+
   if (isPhoton) {
     eventFeatures.photonEta = phoEta;
     eventFeatures.photonProdR = phoProdR;
@@ -440,7 +447,7 @@ EL::StatusCode ITkStudy::execute() {
 
   for (xAOD::TruthParticleContainer::const_iterator truAllItr = truthPartsOrig->begin(); truAllItr != truthPartsOrig->end(); truAllItr++) {
 
-    if ((*truAllItr)->pt() > 2000.0 && (*truAllItr)->pt() < 200000)
+    if ((*truAllItr)->pt() > m_CUTS_truHist_all_PtMIN && (*truAllItr)->pt() < m_CUTS_truHist_all_PtMAX)
       truHist_all -> FillHists((*truAllItr),1.0); //every truth particle (pt cut)
   }
 
@@ -469,7 +476,7 @@ EL::StatusCode ITkStudy::execute() {
   for (xAOD::TrackParticleContainer::const_iterator itkTrk_itr=itkTrack->begin(); itkTrk_itr!=itkTrack->end(); itkTrk_itr++) {
 
 
-    if ((*itkTrk_itr)->pt() > 2000.0 && (*itkTrk_itr)->pt() < 200000.0) {
+    if ((*itkTrk_itr)->pt() > m_CUTS_trkHist_all_PtMIN && (*itkTrk_itr)->pt() < m_CUTS_trkHist_all_PtMAX) {
 
       if (xAOD::TrackHelper::isFake(*itkTrk_itr,0.1)) numFk01++;
       if (xAOD::TrackHelper::isFake(*itkTrk_itr,0.2)) numFk02++;
@@ -497,11 +504,11 @@ EL::StatusCode ITkStudy::execute() {
 	}
       
       }
-
+    
       trkHist_all -> FillHists((*itkTrk_itr),1.0);
 
     }
-   
+  
   
     float mindR = (*itkTrk_itr)->auxdata<float>("matchedDR");
     if (mindR<mindRMatched) { itkTrk_itr_matched = itkTrk_itr; mindRMatched = mindR; }
@@ -509,6 +516,7 @@ EL::StatusCode ITkStudy::execute() {
 
 //  if (mindRMatched<0.02) {
 
+  
   if (mindRMatched<0.1) {
     trkHist_reco->FillHists( (*itkTrk_itr_matched), 1.0 );
   }

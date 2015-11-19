@@ -70,9 +70,10 @@ void TruthHists::FillHists(const xAOD::TruthParticle* tpart, float weight) const
   m_pt 		 -> Fill(tpart->pt()* 1e-3,weight); 
   m_ptGun        -> Fill(tpart->pt()* 1e-3,weight); 
   m_eta		 -> Fill(tpart->eta(),weight); 
-  m_abseta -> Fill(TMath::Abs(tpart->eta()),weight); 
-  if (tpart->pdgId() == 211 && TMath::Power(tpart->pt() - 50000,2) < 20000*20000)
-    m_absetaGun -> Fill(TMath::Abs(tpart->eta()), weight);
+  m_abseta       -> Fill(TMath::Abs(tpart->eta()),weight); 
+
+  //if (tpart->pdgId() == 211 && TMath::Power(tpart->pt() - 50000,2) < 20000*20000)
+  m_absetaGun -> Fill(TMath::Abs(tpart->eta()), weight);
   if (tpart->isAvailable<float>("d0")) {
     m_d0 -> Fill(tpart->auxdata<float>("d0"),weight); 
   }
