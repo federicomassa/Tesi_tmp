@@ -28,7 +28,7 @@ void eff(const char* filename = "./output/hist-sample1.root") {
 
   int pt_bin = 25;
   int ptGun_bin = 40;
-  int eta_bin = 60;
+  int eta_bin = 30;
   int phi_bin = 70;
   int abseta_bin = int(float(eta_bin)/2.0);
 
@@ -59,7 +59,7 @@ void eff(const char* filename = "./output/hist-sample1.root") {
   TH1F* tr_absetaGun = (TH1F*) in->Get("TruthHist_stable__absetaGun");
   TH1F* eff_absetaGun = new TH1F("eff_absetaGun", "Track reco efficiency vs |eta|_gun;|eta|;efficiency", abseta_bin, 0.0, 3.0);
 
-  TH1F* tk_phi = (TH1F*) in->Get("TrackHist_reco_all__phi");
+  TH1F* tk_phi = (TH1F*) in->Get("TrackHist_reco_all__phiTruth");
   TH1F* tr_phi = (TH1F*) in->Get("TruthHist_stable__phi");
   TH1F* eff_phi = new TH1F("eff_phi", "Track reco efficiency vs phi;phi;efficiency", phi_bin, -3.5, 3.5);
 

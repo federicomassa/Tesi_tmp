@@ -34,7 +34,7 @@ void TruthHists::BookHists() {
   m_pt 			     = declare1D(m_name, "pt", 	 "p_{T} [GeV]", 	25,  0.0,     10.0 ); // IT WAS FROM 0 TO 2000 
   m_ptGun 		     = declare1D(m_name, "ptGun", "p_{T} [GeV]", 	40,  40.0,     60.0 );
   m_eta			     = declare1D(m_name, "eta",	 "#eta", 			  60,	 -3.0,     3.0    ); 
-  m_abseta       = declare1D(m_name, "abseta", "|#eta|",    30,   0.0,     3.0);  //it was 15 bin
+  m_abseta       = declare1D(m_name, "abseta", "|#eta|",    15,   0.0,     3.0);
   m_absetaGun       = declare1D(m_name, "absetaGun", "|#etaGun|",    30,   0.0,     3.0);
   m_d0 			     = declare1D(m_name, "d0", 	 "d_{0}",		    120, -0.09,    0.09   ); 
   m_z0 			     = declare1D(m_name, "z0", 	 "z_{0}",		    120, -300.0,   300.0  ); 

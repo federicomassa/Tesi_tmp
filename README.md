@@ -80,7 +80,8 @@ Fake plots: OKAY
 	    - several plots are as a function of TRUTH eta
 
 Efficiency: ONLY FOR GUN, SO OKAY
-	    divide bin by bin ptGun/eta/phi distributions
+	    - divide bin by bin ptGun/eta/phi distributions
+	    - checked that it is function of truth eta and truth phi
 U	    WARNING: if extended to all particles, TruthParticle pt/eta/phi
 	             fill has to be restricted to charged particles.
 Hits:       ONLY FOR GUN, SO OKAY
@@ -88,3 +89,17 @@ Hits:       ONLY FOR GUN, SO OKAY
 	    divided for fake and !fake tracks
 U	    - should be ready for hits as a function of eta,
 	      statistics problem for fakes
+
+/////// PLOTS (combined_plots.cxx) ////////
+
+BIAS PLOTS: ONLY GUN FOR NOW - OKAY
+     biasPtVsEtaXXX_sampleY: - same as Bias plots used in eff_all.cxx but 
+     			       combines results for two samples and saves 
+			       them into png files.
+
+///// PLOTS (fixed_pileup.cxx) //////////
+
+BIAS PLOTS: ONLY GUN FOR NOW - OKAY
+     biasPtVsEtaX:  - same as Bias plots in eff_all but fixes pileup
+                      and particle and plots bias as a func of eta
+		      for several generated pt

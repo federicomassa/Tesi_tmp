@@ -128,10 +128,11 @@ void TrackHists::BookHists() {
   /* track parameterization */
   m_qoverp      = declare1D(m_name, "qoverp",      "#frac{q}{p} [GeV]", 200,  -2e-3,   2e-3); 
   m_pt          = declare1D(m_name, "pt",          "p_{T} [GeV]",       25,    0.0, 10.0); // IT WAS FROM 0 TO 2000 
-  m_ptGun          = declare1D(m_name, "ptGun",          "p_{T} [GeV]",       40,    40.0, 60.0);
+  m_ptGun          = declare1D(m_name, "ptGun",          "p_{T} [GeV]",       5,    1.0, 0.0);
   m_ptnarrow    = declare1D(m_name, "ptnarrow",    "p_{T} [GeV]",       200,    0.0,   50.0); 
   m_eta         = declare1D(m_name, "eta",         "#eta",               60,   -3.0,    3.0); 
   m_phi         = declare1D(m_name, "phi",         "#phi",               70,   -3.5,    3.5); // IT WAS FROM -3.2 TO 3.2, 64 BINS 
+  m_phiTruth         = declare1D(m_name, "phiTruth",         "#phi",               70,   -3.5,    3.5); // IT WAS FROM -3.2 TO 3.2, 64 BINS 
   m_d0          = declare1D(m_name, "d0",          "d_{0} [mm]",        100,   -2.0,    2.0); 
   m_z0          = declare1D(m_name, "z0",          "z_{0} [mm]",        100, -200.0,  200.0); 
   m_z0Corr1     = declare1D(m_name, "z0Corr1",     "z_{0} at PV [mm]",   80,   -8.0,    8.0); 
@@ -223,7 +224,7 @@ void TrackHists::BookHists() {
 
   m_matchingDR = declare1D(m_name, "matchingDR", "#Delta R", 100, 0.0, 0.1); 
 
-  m_abseta       = declare1D(m_name, "abseta",        "|#eta|", 30, 0.0, 3.0); // it was 15 bin 
+  m_abseta       = declare1D(m_name, "abseta",        "|#eta|", 15, 0.0, 3.0);
   m_absetaGun       = declare1D(m_name, "absetaGun",        "|#eta_Gun|", 30, 0.0, 3.0);
   m_abseta_dr001 = declare1D(m_name, "abseta_dr001", "|#eta|", 15, 0.0, 3.0); 
   m_abseta_dr002 = declare1D(m_name, "abseta_dr002", "|#eta|", 15, 0.0, 3.0); 
@@ -588,9 +589,10 @@ void TrackHists::FillHists(const xAOD::TrackParticle* trk, float weight) const {
     if (passCut) {
       //      if (prob>0.95) { //don't use it for now
       
-      m_absetaGun    ->Fill(TMath::Abs(trk->eta()),weight);
+      m_absetaGun    -> Fill(TMath::Abs(trk->eta()),weight);
       m_abseta   -> Fill(TMath::Abs(truthParticle->eta()),weight);
-      
+      m_phiTruth  -> Fill(truthParticle->phi(),weight);
+
       m_matchingDR -> Fill(mindR);
       if (mindR<0.01) { m_abseta_dr001 -> Fill(TMath::Abs(truthParticle->eta())); }
       if (mindR<0.02) { m_abseta_dr002 -> Fill(TMath::Abs(truthParticle->eta())); }

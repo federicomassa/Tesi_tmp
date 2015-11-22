@@ -157,6 +157,7 @@ class TrackHists : public ManageHists {
     TH1F* m_eta; //!        
     TH1F* m_absetaGun; //!
     TH1F* m_phi; //!        
+    TH1F* m_phiTruth; //!        
     TH1F* m_d0; //!       
     TH1F* m_z0; //!       
     TH1F* m_z0Corr1; //!       

@@ -72,11 +72,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   TLegend* leg = new TLegend(0.15,0.85,0.4,0.6);
   leg->SetFillColor(0);
-  leg->AddEntry(biasPt50, "PU 50", "lp");
-  leg->AddEntry(biasPt100, "PU 100", "lp");
-  leg->AddEntry(biasPt140, "PU 140", "lp");
-  leg->AddEntry(biasPt200, "PU 200", "lp");
-  leg->AddEntry(biasPt300, "PU 300", "lp");
+  leg->AddEntry(biasPt50, (sample + ": PU 50").c_str(), "lp");
+  leg->AddEntry(biasPt100, (sample + ": PU100").c_str(), "lp");
+  leg->AddEntry(biasPt140, (sample + ": PU 140").c_str(), "lp");
+  leg->AddEntry(biasPt200, (sample + ": PU 200").c_str(), "lp");
+  leg->AddEntry(biasPt300, (sample + ": PU 300").c_str(), "lp");
   
   leg->Draw();
 
@@ -116,11 +116,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   TLegend* leg2 = new TLegend(0.15,0.85,0.4,0.6);
   leg2->SetFillColor(0);
-  leg2->AddEntry(biasD050, "PU 50", "lp");
-  leg2->AddEntry(biasD0100, "PU 100", "lp");
-  leg2->AddEntry(biasD0140, "PU 140", "lp");
-  leg2->AddEntry(biasD0200, "PU 200", "lp");
-  leg2->AddEntry(biasD0300, "PU 300", "lp");
+  leg2->AddEntry(biasD050, (sample + ": PU 50").c_str(), "lp");
+  leg2->AddEntry(biasD0100, (sample + ": PU 100").c_str(), "lp");
+  leg2->AddEntry(biasD0140, (sample + ": PU 140").c_str(), "lp");
+  leg2->AddEntry(biasD0200, (sample + ": PU 200").c_str(), "lp");
+  leg2->AddEntry(biasD0300, (sample + ": PU 300").c_str(), "lp");
   
   leg2->Draw();
 
@@ -162,11 +162,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   TLegend* leg3 = new TLegend(0.15,0.35,0.35,0.15);
   leg3->SetFillColor(0);
-  leg3->AddEntry(biasZ050, "PU 50", "lp");
-  leg3->AddEntry(biasZ0100, "PU 100", "lp");
-  leg3->AddEntry(biasZ0140, "PU 140", "lp");
-  leg3->AddEntry(biasZ0200, "PU 200", "lp");
-  leg3->AddEntry(biasZ0300, "PU 300", "lp");
+  leg3->AddEntry(biasZ050, (sample + ": PU 50").c_str(), "lp");
+  leg3->AddEntry(biasZ0100, (sample + ": PU 100").c_str(), "lp");
+  leg3->AddEntry(biasZ0140, (sample + ": PU 140").c_str(), "lp");
+  leg3->AddEntry(biasZ0200, (sample + ": PU 200").c_str(), "lp");
+  leg3->AddEntry(biasZ0300, (sample + ": PU 300").c_str(), "lp");
   
   leg3->Draw();
   
@@ -207,11 +207,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   TLegend* leg4 = new TLegend(0.15,0.85,0.4,0.6);
   leg4->SetFillColor(0);
-  leg4->AddEntry(biasQPt50, "PU 50", "lp");
-  leg4->AddEntry(biasQPt100, "PU 100", "lp");
-  leg4->AddEntry(biasQPt140, "PU 140", "lp");
-  leg4->AddEntry(biasQPt200, "PU 200", "lp");
-  leg4->AddEntry(biasQPt300, "PU 300", "lp");
+  leg4->AddEntry(biasQPt50, (sample + ": PU 50").c_str(), "lp");
+  leg4->AddEntry(biasQPt100, (sample + ": PU 100").c_str(), "lp");
+  leg4->AddEntry(biasQPt140, (sample + ": PU 140").c_str(), "lp");
+  leg4->AddEntry(biasQPt200, (sample + ": PU 200").c_str(), "lp");
+  leg4->AddEntry(biasQPt300, (sample + ": PU 300").c_str(), "lp");
   
   leg4->Draw();
   
@@ -252,11 +252,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
   TLegend* leg5 = new TLegend(0.15,0.85,0.4,0.6);
   leg5->SetFillColor(0);
-  leg5->AddEntry(biasPhi50, "PU 50", "lp");
-  leg5->AddEntry(biasPhi100, "PU 100", "lp");
-  leg5->AddEntry(biasPhi140, "PU 140", "lp");
-  leg5->AddEntry(biasPhi200, "PU 200", "lp");
-  leg5->AddEntry(biasPhi300, "PU 300", "lp");
+  leg5->AddEntry(biasPhi50, (sample + ": PU 50").c_str(), "lp");
+  leg5->AddEntry(biasPhi100, (sample + ": PU 100").c_str(), "lp");
+  leg5->AddEntry(biasPhi140, (sample + ": PU 140").c_str(), "lp");
+  leg5->AddEntry(biasPhi200, (sample + ": PU 200").c_str(), "lp");
+  leg5->AddEntry(biasPhi300, (sample + ": PU 300").c_str(), "lp");
   
   leg5->Draw();
   
@@ -283,10 +283,23 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     TMultiGraph* mgFakeGun = new TMultiGraph();
 
     fakeGun50->SetLineColor(kCyan);
-    fakeGun100->SetLineColor(kBlue);
+    fakeGun100->SetLineColor(kPink - 8);
     fakeGun140->SetLineColor(kGreen);
-    fakeGun200->SetLineColor(kPink-8);
+    fakeGun200->SetLineColor(kBlue);
     fakeGun300->SetLineColor(kRed);
+
+    fakeGun50->SetMarkerStyle(20);
+    fakeGun100->SetMarkerStyle(21);
+    fakeGun140->SetMarkerStyle(22);
+    fakeGun200->SetMarkerStyle(29);
+    fakeGun300->SetMarkerStyle(33);
+
+    fakeGun50->SetMarkerColor(kCyan);
+    fakeGun100->SetMarkerColor(kPink-8);
+    fakeGun140->SetMarkerColor(kGreen);
+    fakeGun200->SetMarkerColor(kBlue);
+    fakeGun300->SetMarkerColor(kRed);
+
 
     mgFakeGun->Add(fakeGun50);
     // mgFakeGun->Add(fakeGun100);
@@ -301,11 +314,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
     TLegend* legFakeGun = new TLegend(0.15,0.85,0.4,0.6);
 
-    legFakeGun->AddEntry(fakeGun50, "PU 50", "lp");
-    // legFakeGun->AddEntry(fakeGun100, "PU 100", "lp");
-    // legFakeGun->AddEntry(fakeGun140, "PU 140", "lp");
-    legFakeGun->AddEntry(fakeGun200, "PU 200", "lp");
-    legFakeGun->AddEntry(fakeGun300, "PU 300", "lp");
+    legFakeGun->AddEntry(fakeGun50, (sample + ": PU 50").c_str(), "lp");
+    // legFakeGun->AddEntry(fakeGun100, (sample + ": PU 100").c_str(), "lp");
+    // legFakeGun->AddEntry(fakeGun140, (sample + ": PU 140").c_str(), "lp");
+    legFakeGun->AddEntry(fakeGun200, (sample + ": PU 200").c_str(), "lp");
+    legFakeGun->AddEntry(fakeGun300, (sample + ": PU 300").c_str(), "lp");
 
     legFakeGun->Draw();
 
@@ -327,10 +340,22 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     TMultiGraph* mgFake = new TMultiGraph();
 
     fake50->SetLineColor(kCyan);
-    fake100->SetLineColor(kBlue);
+    fake100->SetLineColor(kPink - 8);
     fake140->SetLineColor(kGreen);
-    fake200->SetLineColor(kPink-8);
+    fake200->SetLineColor(kBlue);
     fake300->SetLineColor(kRed);
+
+    fake50->SetMarkerStyle(20);
+    fake100->SetMarkerStyle(21);
+    fake140->SetMarkerStyle(22);
+    fake200->SetMarkerStyle(29);
+    fake300->SetMarkerStyle(33);
+
+    fake50->SetMarkerColor(kCyan);
+    fake100->SetMarkerColor(kPink-8);
+    fake140->SetMarkerColor(kGreen);
+    fake200->SetMarkerColor(kBlue);
+    fake300->SetMarkerColor(kRed);
 
     mgFake->Add(fake50);
     // mgFake->Add(fake100);
@@ -341,15 +366,15 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     mgFake->SetTitle("Fake  Rate per event;Truth |#eta|; Fake rate");
     
     mgFake->Draw("APE");
-    mgFake->GetYaxis()->SetTitleOffset(1.2);
+    mgFake->GetYaxis()->SetTitleOffset(1.35);
 
     TLegend* legFake = new TLegend(0.15,0.85,0.4,0.6);
 
-    legFake->AddEntry(fake50, "PU 50", "lp");
-    // legFake->AddEntry(fake100, "PU 100", "lp");
-    // legFake->AddEntry(fake140, "PU 140", "lp");
-    legFake->AddEntry(fake200, "PU 200", "lp");
-    legFake->AddEntry(fake300, "PU 300", "lp");
+    legFake->AddEntry(fake50, (sample + ": PU 50").c_str(), "lp");
+    // legFake->AddEntry(fake100, (sample + ": PU 100").c_str(), "lp");
+    // legFake->AddEntry(fake140, (sample + ": PU 140").c_str(), "lp");
+    legFake->AddEntry(fake200, (sample + ": PU 200").c_str(), "lp");
+    legFake->AddEntry(fake300, (sample + ": PU 300").c_str(), "lp");
 
     legFake->Draw();
 
@@ -382,6 +407,19 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       effPt200->SetLineColor(kPink-8);
       effPt300->SetLineColor(kRed);
 
+      effPt50->SetMarkerStyle(20);
+      effPt100->SetMarkerStyle(21);
+      effPt140->SetMarkerStyle(22);
+      effPt200->SetMarkerStyle(29);
+      effPt300->SetMarkerStyle(33);
+
+      effPt50->SetMarkerColor(kCyan);
+      effPt100->SetMarkerColor(kBlue);
+      effPt140->SetMarkerColor(kGreen);
+      effPt200->SetMarkerColor(kPink-8);
+      effPt300->SetMarkerColor(kRed);
+
+      
 
       effPt50->Draw();
       effPt50->SetStats(0);
@@ -407,11 +445,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       
       TLegend* leg_effPt = new TLegend(0.15,0.35,0.35,0.15);
       leg_effPt->SetFillColor(0);
-      leg_effPt->AddEntry(effPt50, "PU 50", "lp");
-      leg_effPt->AddEntry(effPt100, "PU 100", "lp");
-      leg_effPt->AddEntry(effPt140, "PU 140", "lp");
-      leg_effPt->AddEntry(effPt200, "PU 200", "lp");
-      leg_effPt->AddEntry(effPt300, "PU 300", "lp");
+      leg_effPt->AddEntry(effPt50, (sample + ": PU 50").c_str(), "lp");
+      leg_effPt->AddEntry(effPt100, (sample + ": PU 100").c_str(), "lp");
+      leg_effPt->AddEntry(effPt140, (sample + ": PU 140").c_str(), "lp");
+      leg_effPt->AddEntry(effPt200, (sample + ": PU 200").c_str(), "lp");
+      leg_effPt->AddEntry(effPt300, (sample + ": PU 300").c_str(), "lp");
       
       leg_effPt->Draw();
       
@@ -434,6 +472,17 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       effEta200->SetLineColor(kPink-8);
       effEta300->SetLineColor(kRed);
 
+      effEta50->SetMarkerStyle(20);
+      effEta100->SetMarkerStyle(21);
+      effEta140->SetMarkerStyle(22);
+      effEta200->SetMarkerStyle(29);
+      effEta300->SetMarkerStyle(33);
+
+      effEta50->SetMarkerColor(kCyan);
+      effEta100->SetMarkerColor(kBlue);
+      effEta140->SetMarkerColor(kGreen);
+      effEta200->SetMarkerColor(kPink-8);
+      effEta300->SetMarkerColor(kRed);
 
       effEta50->Draw();
       effEta50->SetStats(0);
@@ -459,11 +508,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       
       TLegend* leg_effEta = new TLegend(0.15,0.35,0.35,0.15);
       leg_effEta->SetFillColor(0);
-      leg_effEta->AddEntry(effEta50, "PU 50", "lp");
-      leg_effEta->AddEntry(effEta100, "PU 100", "lp");
-      leg_effEta->AddEntry(effEta140, "PU 140", "lp");
-      leg_effEta->AddEntry(effEta200, "PU 200", "lp");
-      leg_effEta->AddEntry(effEta300, "PU 300", "lp");
+      leg_effEta->AddEntry(effEta50, (sample + ": PU 50").c_str(), "lp");
+      leg_effEta->AddEntry(effEta100, (sample + ": PU 100").c_str(), "lp");
+      leg_effEta->AddEntry(effEta140, (sample + ": PU 140").c_str(), "lp");
+      leg_effEta->AddEntry(effEta200, (sample + ": PU 200").c_str(), "lp");
+      leg_effEta->AddEntry(effEta300, (sample + ": PU 300").c_str(), "lp");
       
       leg_effEta->Draw();
       
@@ -486,6 +535,17 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       effPhi200->SetLineColor(kPink-8);
       effPhi300->SetLineColor(kRed);
 
+      effPhi50->SetMarkerStyle(20);
+      effPhi100->SetMarkerStyle(21);
+      effPhi140->SetMarkerStyle(22);
+      effPhi200->SetMarkerStyle(29);
+      effPhi300->SetMarkerStyle(33);
+
+      effPhi50->SetMarkerColor(kCyan);
+      effPhi100->SetMarkerColor(kBlue);
+      effPhi140->SetMarkerColor(kGreen);
+      effPhi200->SetMarkerColor(kPink-8);
+      effPhi300->SetMarkerColor(kRed);
 
       effPhi50->Draw();
       effPhi50->SetStats(0);
@@ -511,11 +571,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       
       TLegend* leg_effPhi = new TLegend(0.15,0.35,0.35,0.15);
       leg_effPhi->SetFillColor(0);
-      leg_effPhi->AddEntry(effPhi50, "PU 50", "lp");
-      leg_effPhi->AddEntry(effPhi100, "PU 100", "lp");
-      leg_effPhi->AddEntry(effPhi140, "PU 140", "lp");
-      leg_effPhi->AddEntry(effPhi200, "PU 200", "lp");
-      leg_effPhi->AddEntry(effPhi300, "PU 300", "lp");
+      leg_effPhi->AddEntry(effPhi50, (sample + ": PU 50").c_str(), "lp");
+      leg_effPhi->AddEntry(effPhi100, (sample + ": PU 100").c_str(), "lp");
+      leg_effPhi->AddEntry(effPhi140, (sample + ": PU 140").c_str(), "lp");
+      leg_effPhi->AddEntry(effPhi200, (sample + ": PU 200").c_str(), "lp");
+      leg_effPhi->AddEntry(effPhi300, (sample + ": PU 300").c_str(), "lp");
       
       leg_effPhi->Draw();
       
@@ -553,40 +613,47 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     TH1F* nSCTHits300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nSCTHits"));
 
     nSiHits50->SetLineColor(kCyan);
-    nSiHits100->SetLineColor(kBlue);
+    nSiHits100->SetLineColor(kPink -8);
     nSiHits140->SetLineColor(kGreen);
-    nSiHits200->SetLineColor(kPink-8);
+    nSiHits200->SetLineColor(kBlue);
     nSiHits300->SetLineColor(kRed);
     
     canv_nSiHits->cd();
   
     nSiHits50->Draw();
-    nSiHits50->SetStats(0);
+    // nSiHits50->SetStats(0);
     nSiHits50->GetYaxis()->SetTitleOffset(1.2);
+    nSiHits50->SetMarkerStyle(20);
+    nSiHits50->SetMarkerColor(kCyan);
+
+    // nSiHits100->Draw("same");
+    // nSiHits100->SetStats(0);
+    // nSiHits100->GetYaxis()->SetTitleOffset(1.2);
     
-    nSiHits100->Draw("same");
-    nSiHits100->SetStats(0);
-    nSiHits100->GetYaxis()->SetTitleOffset(1.2);
-    
-    nSiHits140->Draw("same");
-    nSiHits140->SetStats(0);
-    nSiHits140->GetYaxis()->SetTitleOffset(1.2);
+    // nSiHits140->Draw("same");
+    // nSiHits140->SetStats(0);
+    // nSiHits140->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHits200->Draw("same");
-    nSiHits200->SetStats(0);
+    // nSiHits200->SetStats(0);
     nSiHits200->GetYaxis()->SetTitleOffset(1.2);
-    
+    nSiHits200->SetMarkerStyle(21);
+    nSiHits200->SetMarkerColor(kBlue);
+
     nSiHits300->Draw("same");
-    nSiHits300->SetStats(0);
+    // nSiHits300->SetStats(0);
     nSiHits300->GetYaxis()->SetTitleOffset(1.2);
+    nSiHits300->SetMarkerStyle(22);
+    nSiHits300->SetMarkerColor(kRed);
+
     
     TLegend* leg_nSiHits = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSiHits->SetFillColor(0);
-    leg_nSiHits->AddEntry(nSiHits50, "PU 50", "lp");
-    leg_nSiHits->AddEntry(nSiHits100, "PU 100", "lp");
-    leg_nSiHits->AddEntry(nSiHits140, "PU 140", "lp");
-    leg_nSiHits->AddEntry(nSiHits200, "PU 200", "lp");
-    leg_nSiHits->AddEntry(nSiHits300, "PU 300", "lp");
+    leg_nSiHits->AddEntry(nSiHits50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nSiHits->AddEntry(nSiHits100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nSiHits->AddEntry(nSiHits140, (sample + ": PU 140").c_str(), "lp");
+    leg_nSiHits->AddEntry(nSiHits200, (sample + ": PU 200").c_str(), "lp");
+    leg_nSiHits->AddEntry(nSiHits300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nSiHits->Draw();
     
@@ -596,41 +663,49 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     ////////
 
     nPixHits50->SetLineColor(kCyan);
-    nPixHits100->SetLineColor(kBlue);
+    nPixHits100->SetLineColor(kPink -8);
     nPixHits140->SetLineColor(kGreen);
-    nPixHits200->SetLineColor(kPink-8);
+    nPixHits200->SetLineColor(kBlue);
     nPixHits300->SetLineColor(kRed);
     
     canv_nPixHits->cd();
  
     nPixHits50->Draw();
-    nPixHits50->SetStats(0);
+    // nPixHits50->SetStats(0);
     nPixHits50->GetYaxis()->SetTitleOffset(1.2);
+    nPixHits50->SetMarkerStyle(20);
+    nPixHits50->SetMarkerColor(kCyan);
+
+
+    // nPixHits100->Draw("same");
+    // nPixHits100->SetStats(0);
+    // nPixHits100->GetYaxis()->SetTitleOffset(1.2);
     
-    nPixHits100->Draw("same");
-    nPixHits100->SetStats(0);
-    nPixHits100->GetYaxis()->SetTitleOffset(1.2);
-    
-    nPixHits140->Draw("same");
-    nPixHits140->SetStats(0);
-    nPixHits140->GetYaxis()->SetTitleOffset(1.2);
+    // nPixHits140->Draw("same");
+    // nPixHits140->SetStats(0);
+    // nPixHits140->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHits200->Draw("same");
-    nPixHits200->SetStats(0);
+    // nPixHits200->SetStats(0);
     nPixHits200->GetYaxis()->SetTitleOffset(1.2);
+    nPixHits200->SetMarkerStyle(21);
+    nPixHits200->SetMarkerColor(kBlue);
+
     
     nPixHits300->Draw("same");
-    nPixHits300->SetStats(0);
+    // nPixHits300->SetStats(0);
     nPixHits300->GetYaxis()->SetTitleOffset(1.2);
-    
+    nPixHits300->SetMarkerStyle(22);
+    nPixHits300->SetMarkerColor(kRed);
+
     
     TLegend* leg_nPixHits = new TLegend(0.65,0.6,0.85,0.4);
     leg_nPixHits->SetFillColor(0);
-    leg_nPixHits->AddEntry(nPixHits50, "PU 50", "lp");
-    leg_nPixHits->AddEntry(nPixHits100, "PU 100", "lp");
-    leg_nPixHits->AddEntry(nPixHits140, "PU 140", "lp");
-    leg_nPixHits->AddEntry(nPixHits200, "PU 200", "lp");
-    leg_nPixHits->AddEntry(nPixHits300, "PU 300", "lp");
+    leg_nPixHits->AddEntry(nPixHits50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nPixHits->AddEntry(nPixHits100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nPixHits->AddEntry(nPixHits140, (sample + ": PU 140").c_str(), "lp");
+    leg_nPixHits->AddEntry(nPixHits200, (sample + ": PU 200").c_str(), "lp");
+    leg_nPixHits->AddEntry(nPixHits300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nPixHits->Draw();
     
@@ -640,40 +715,46 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     ///////////
 
     nSCTHits50->SetLineColor(kCyan);
-    nSCTHits100->SetLineColor(kBlue);
+    nSCTHits100->SetLineColor(kPink -8);
     nSCTHits140->SetLineColor(kGreen);
-    nSCTHits200->SetLineColor(kPink-8);
+    nSCTHits200->SetLineColor(kBlue);
     nSCTHits300->SetLineColor(kRed);
     
     canv_nSCTHits->cd();
  
     nSCTHits50->Draw();
-    nSCTHits50->SetStats(0);
+    // nSCTHits50->SetStats(0);
     nSCTHits50->GetYaxis()->SetTitleOffset(1.2);
+    nSCTHits50->SetMarkerStyle(20);
+    nSCTHits50->SetMarkerColor(kCyan);
+
+    // nSCTHits100->Draw("same");
+    // nSCTHits100->SetStats(0);
+    // nSCTHits100->GetYaxis()->SetTitleOffset(1.2);
     
-    nSCTHits100->Draw("same");
-    nSCTHits100->SetStats(0);
-    nSCTHits100->GetYaxis()->SetTitleOffset(1.2);
-    
-    nSCTHits140->Draw("same");
-    nSCTHits140->SetStats(0);
-    nSCTHits140->GetYaxis()->SetTitleOffset(1.2);
+    // nSCTHits140->Draw("same");
+    // nSCTHits140->SetStats(0);
+    // nSCTHits140->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHits200->Draw("same");
-    nSCTHits200->SetStats(0);
+    // nSCTHits200->SetStats(0);
     nSCTHits200->GetYaxis()->SetTitleOffset(1.2);
+    nSCTHits200->SetMarkerStyle(21);
+    nSCTHits200->SetMarkerColor(kBlue);
     
     nSCTHits300->Draw("same");
-    nSCTHits300->SetStats(0);
+    // nSCTHits300->SetStats(0);
     nSCTHits300->GetYaxis()->SetTitleOffset(1.2);
-     
+    nSCTHits300->SetMarkerStyle(22);
+    nSCTHits300->SetMarkerColor(kRed);     
+
     TLegend* leg_nSCTHits = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSCTHits->SetFillColor(0);
-    leg_nSCTHits->AddEntry(nSCTHits50, "PU 50", "lp");
-    leg_nSCTHits->AddEntry(nSCTHits100, "PU 100", "lp");
-    leg_nSCTHits->AddEntry(nSCTHits140, "PU 140", "lp");
-    leg_nSCTHits->AddEntry(nSCTHits200, "PU 200", "lp");
-    leg_nSCTHits->AddEntry(nSCTHits300, "PU 300", "lp");
+    leg_nSCTHits->AddEntry(nSCTHits50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nSCTHits->AddEntry(nSCTHits100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nSCTHits->AddEntry(nSCTHits140, (sample + ": PU 140").c_str(), "lp");
+    leg_nSCTHits->AddEntry(nSCTHits200, (sample + ": PU 200").c_str(), "lp");
+    leg_nSCTHits->AddEntry(nSCTHits300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nSCTHits->Draw();
     
@@ -708,41 +789,48 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     TH1F* nSCTHitsFake300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nFakeSCTHits"));
     
     nSiHitsFake50->SetLineColor(kCyan);
-    nSiHitsFake100->SetLineColor(kBlue);
+    nSiHitsFake100->SetLineColor(kPink -8);
     nSiHitsFake140->SetLineColor(kGreen);
-    nSiHitsFake200->SetLineColor(kPink-8);
+    nSiHitsFake200->SetLineColor(kBlue);
     nSiHitsFake300->SetLineColor(kRed);
     
     canv_nSiHitsFake->cd();
  
     nSiHitsFake50->Draw();
-    nSiHitsFake50->SetStats(0);
+    // nSiHitsFake50->SetStats(0);
     nSiHitsFake50->GetYaxis()->SetTitleOffset(1.2);
+    nSiHitsFake50->SetMarkerStyle(20);
+    nSiHitsFake50->SetMarkerColor(kCyan);    
+
+    // nSiHitsFake100->Draw("same");
+    // nSiHitsFake100->SetStats(0);
+    // nSiHitsFake100->GetYaxis()->SetTitleOffset(1.2);
     
-    nSiHitsFake100->Draw("same");
-    nSiHitsFake100->SetStats(0);
-    nSiHitsFake100->GetYaxis()->SetTitleOffset(1.2);
-    
-    nSiHitsFake140->Draw("same");
-    nSiHitsFake140->SetStats(0);
-    nSiHitsFake140->GetYaxis()->SetTitleOffset(1.2);
+    // nSiHitsFake140->Draw("same");
+    // nSiHitsFake140->SetStats(0);
+    // nSiHitsFake140->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsFake200->Draw("same");
-    nSiHitsFake200->SetStats(0);
+    // nSiHitsFake200->SetStats(0);
     nSiHitsFake200->GetYaxis()->SetTitleOffset(1.2);
+    nSiHitsFake200->SetMarkerStyle(21);
+    nSiHitsFake200->SetMarkerColor(kBlue);    
+
     
     nSiHitsFake300->Draw("same");
-    nSiHitsFake300->SetStats(0);
+    // nSiHitsFake300->SetStats(0);
     nSiHitsFake300->GetYaxis()->SetTitleOffset(1.2);
- 
+    nSiHitsFake300->SetMarkerStyle(22);
+    nSiHitsFake300->SetMarkerColor(kRed);    
+
      
     TLegend* leg_nSiHitsFake = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSiHitsFake->SetFillColor(0);
-    leg_nSiHitsFake->AddEntry(nSiHitsFake50, "PU 50", "lp");
-    leg_nSiHitsFake->AddEntry(nSiHitsFake100, "PU 100", "lp");
-    leg_nSiHitsFake->AddEntry(nSiHitsFake140, "PU 140", "lp");
-    leg_nSiHitsFake->AddEntry(nSiHitsFake200, "PU 200", "lp");
-    leg_nSiHitsFake->AddEntry(nSiHitsFake300, "PU 300", "lp");
+    leg_nSiHitsFake->AddEntry(nSiHitsFake50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nSiHitsFake->AddEntry(nSiHitsFake100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nSiHitsFake->AddEntry(nSiHitsFake140, (sample + ": PU 140").c_str(), "lp");
+    leg_nSiHitsFake->AddEntry(nSiHitsFake200, (sample + ": PU 200").c_str(), "lp");
+    leg_nSiHitsFake->AddEntry(nSiHitsFake300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nSiHitsFake->Draw();
     
@@ -752,41 +840,46 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     ////////
 
     nPixHitsFake50->SetLineColor(kCyan);
-    nPixHitsFake100->SetLineColor(kBlue);
+    nPixHitsFake100->SetLineColor(kPink -8);
     nPixHitsFake140->SetLineColor(kGreen);
-    nPixHitsFake200->SetLineColor(kPink-8);
+    nPixHitsFake200->SetLineColor(kBlue);
     nPixHitsFake300->SetLineColor(kRed);
     
     canv_nPixHitsFake->cd();
  
     nPixHitsFake50->Draw();
-    nPixHitsFake50->SetStats(0);
+    // nPixHitsFake50->SetStats(0);
     nPixHitsFake50->GetYaxis()->SetTitleOffset(1.2);
+    nPixHitsFake50->SetMarkerStyle(20);
+    nPixHitsFake50->SetMarkerColor(kCyan);    
+
+    // nPixHitsFake100->Draw("same");
+    // nPixHitsFake100->SetStats(0);
+    // nPixHitsFake100->GetYaxis()->SetTitleOffset(1.2);
     
-    nPixHitsFake100->Draw("same");
-    nPixHitsFake100->SetStats(0);
-    nPixHitsFake100->GetYaxis()->SetTitleOffset(1.2);
-    
-    nPixHitsFake140->Draw("same");
-    nPixHitsFake140->SetStats(0);
-    nPixHitsFake140->GetYaxis()->SetTitleOffset(1.2);
+    // nPixHitsFake140->Draw("same");
+    // nPixHitsFake140->SetStats(0);
+    // nPixHitsFake140->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsFake200->Draw("same");
-    nPixHitsFake200->SetStats(0);
+    // nPixHitsFake200->SetStats(0);
     nPixHitsFake200->GetYaxis()->SetTitleOffset(1.2);
+    nPixHitsFake200->SetMarkerStyle(21);
+    nPixHitsFake200->SetMarkerColor(kBlue);    
     
     nPixHitsFake300->Draw("same");
-    nPixHitsFake300->SetStats(0);
+    // nPixHitsFake300->SetStats(0);
     nPixHitsFake300->GetYaxis()->SetTitleOffset(1.2);
-  
+    nPixHitsFake300->SetMarkerStyle(22);
+    nPixHitsFake300->SetMarkerColor(kRed);    
     
     TLegend* leg_nPixHitsFake = new TLegend(0.65,0.6,0.85,0.4);
     leg_nPixHitsFake->SetFillColor(0);
-    leg_nPixHitsFake->AddEntry(nPixHitsFake50, "PU 50", "lp");
-    leg_nPixHitsFake->AddEntry(nPixHitsFake100, "PU 100", "lp");
-    leg_nPixHitsFake->AddEntry(nPixHitsFake140, "PU 140", "lp");
-    leg_nPixHitsFake->AddEntry(nPixHitsFake200, "PU 200", "lp");
-    leg_nPixHitsFake->AddEntry(nPixHitsFake300, "PU 300", "lp");
+    leg_nPixHitsFake->AddEntry(nPixHitsFake50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nPixHitsFake->AddEntry(nPixHitsFake100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nPixHitsFake->AddEntry(nPixHitsFake140, (sample + ": PU 140").c_str(), "lp");
+    leg_nPixHitsFake->AddEntry(nPixHitsFake200, (sample + ": PU 200").c_str(), "lp");
+    leg_nPixHitsFake->AddEntry(nPixHitsFake300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nPixHitsFake->Draw();
     
@@ -796,40 +889,46 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     ///////////
 
     nSCTHitsFake50->SetLineColor(kCyan);
-    nSCTHitsFake100->SetLineColor(kBlue);
+    nSCTHitsFake100->SetLineColor(kPink -8);
     nSCTHitsFake140->SetLineColor(kGreen);
-    nSCTHitsFake200->SetLineColor(kPink-8);
+    nSCTHitsFake200->SetLineColor(kBlue);
     nSCTHitsFake300->SetLineColor(kRed);
     
     canv_nSCTHitsFake->cd();
  
     nSCTHitsFake50->Draw();
-    nSCTHitsFake50->SetStats(0);
+    // nSCTHitsFake50->SetStats(0);
     nSCTHitsFake50->GetYaxis()->SetTitleOffset(1.2);
+    nSCTHitsFake50->SetMarkerStyle(20);
+    nSCTHitsFake50->SetMarkerColor(kCyan);    
+
+    // nSCTHitsFake100->Draw("same");
+    // nSCTHitsFake100->SetStats(0);
+    // nSCTHitsFake100->GetYaxis()->SetTitleOffset(1.2);
     
-    nSCTHitsFake100->Draw("same");
-    nSCTHitsFake100->SetStats(0);
-    nSCTHitsFake100->GetYaxis()->SetTitleOffset(1.2);
-    
-    nSCTHitsFake140->Draw("same");
-    nSCTHitsFake140->SetStats(0);
-    nSCTHitsFake140->GetYaxis()->SetTitleOffset(1.2);
+    // nSCTHitsFake140->Draw("same");
+    // nSCTHitsFake140->SetStats(0);
+    // nSCTHitsFake140->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsFake200->Draw("same");
-    nSCTHitsFake200->SetStats(0);
+    // nSCTHitsFake200->SetStats(0);
     nSCTHitsFake200->GetYaxis()->SetTitleOffset(1.2);
+    nSCTHitsFake200->SetMarkerStyle(21);
+    nSCTHitsFake200->SetMarkerColor(kBlue);    
     
     nSCTHitsFake300->Draw("same");
-    nSCTHitsFake300->SetStats(0);
+    // nSCTHitsFake300->SetStats(0);
     nSCTHitsFake300->GetYaxis()->SetTitleOffset(1.2);
-     
+    nSCTHitsFake300->SetMarkerStyle(22);
+    nSCTHitsFake300->SetMarkerColor(kRed);         
+
     TLegend* leg_nSCTHitsFake = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSCTHitsFake->SetFillColor(0);
-    leg_nSCTHitsFake->AddEntry(nSCTHitsFake50, "PU 50", "lp");
-    leg_nSCTHitsFake->AddEntry(nSCTHitsFake100, "PU 100", "lp");
-    leg_nSCTHitsFake->AddEntry(nSCTHitsFake140, "PU 140", "lp");
-    leg_nSCTHitsFake->AddEntry(nSCTHitsFake200, "PU 200", "lp");
-    leg_nSCTHitsFake->AddEntry(nSCTHitsFake300, "PU 300", "lp");
+    leg_nSCTHitsFake->AddEntry(nSCTHitsFake50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nSCTHitsFake->AddEntry(nSCTHitsFake100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nSCTHitsFake->AddEntry(nSCTHitsFake140, (sample + ": PU 140").c_str(), "lp");
+    leg_nSCTHitsFake->AddEntry(nSCTHitsFake200, (sample + ": PU 200").c_str(), "lp");
+    leg_nSCTHitsFake->AddEntry(nSCTHitsFake300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nSCTHitsFake->Draw();
     
@@ -863,40 +962,46 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     TH1F* nSCTHitsTrue300 = dynamic_cast<TH1F*>(in300->Get("TrackHist_reco_all__nTrueSCTHits"));
     
     nSiHitsTrue50->SetLineColor(kCyan);
-    nSiHitsTrue100->SetLineColor(kBlue);
+    nSiHitsTrue100->SetLineColor(kPink -8);
     nSiHitsTrue140->SetLineColor(kGreen);
-    nSiHitsTrue200->SetLineColor(kPink-8);
+    nSiHitsTrue200->SetLineColor(kBlue);
     nSiHitsTrue300->SetLineColor(kRed);
     
     canv_nSiHitsTrue->cd();
  
     nSiHitsTrue50->Draw();
-    nSiHitsTrue50->SetStats(0);
+    // nSiHitsTrue50->SetStats(0);
     nSiHitsTrue50->GetYaxis()->SetTitleOffset(1.2);
+    nSiHitsTrue50->SetMarkerStyle(20);
+    nSiHitsTrue50->SetMarkerColor(kCyan);    
     
-    nSiHitsTrue100->Draw("same");
-    nSiHitsTrue100->SetStats(0);
-    nSiHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
+    // nSiHitsTrue100->Draw("same");
+    // nSiHitsTrue100->SetStats(0);
+    // nSiHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
     
-    nSiHitsTrue140->Draw("same");
-    nSiHitsTrue140->SetStats(0);
-    nSiHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
+    // nSiHitsTrue140->Draw("same");
+    // nSiHitsTrue140->SetStats(0);
+    // nSiHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
     
     nSiHitsTrue200->Draw("same");
-    nSiHitsTrue200->SetStats(0);
+    // nSiHitsTrue200->SetStats(0);
     nSiHitsTrue200->GetYaxis()->SetTitleOffset(1.2);
+    nSiHitsTrue200->SetMarkerStyle(21);
+    nSiHitsTrue200->SetMarkerColor(kBlue);    
     
     nSiHitsTrue300->Draw("same");
-    nSiHitsTrue300->SetStats(0);
+    // nSiHitsTrue300->SetStats(0);
     nSiHitsTrue300->GetYaxis()->SetTitleOffset(1.2);
-     
+    nSiHitsTrue300->SetMarkerStyle(22);
+    nSiHitsTrue300->SetMarkerColor(kRed);         
+
     TLegend* leg_nSiHitsTrue = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSiHitsTrue->SetFillColor(0);
-    leg_nSiHitsTrue->AddEntry(nSiHitsTrue50, "PU 50", "lp");
-    leg_nSiHitsTrue->AddEntry(nSiHitsTrue100, "PU 100", "lp");
-    leg_nSiHitsTrue->AddEntry(nSiHitsTrue140, "PU 140", "lp");
-    leg_nSiHitsTrue->AddEntry(nSiHitsTrue200, "PU 200", "lp");
-    leg_nSiHitsTrue->AddEntry(nSiHitsTrue300, "PU 300", "lp");
+    leg_nSiHitsTrue->AddEntry(nSiHitsTrue50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nSiHitsTrue->AddEntry(nSiHitsTrue100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nSiHitsTrue->AddEntry(nSiHitsTrue140, (sample + ": PU 140").c_str(), "lp");
+    leg_nSiHitsTrue->AddEntry(nSiHitsTrue200, (sample + ": PU 200").c_str(), "lp");
+    leg_nSiHitsTrue->AddEntry(nSiHitsTrue300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nSiHitsTrue->Draw();
     
@@ -906,41 +1011,46 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     ////////
 
     nPixHitsTrue50->SetLineColor(kCyan);
-    nPixHitsTrue100->SetLineColor(kBlue);
+    nPixHitsTrue100->SetLineColor(kPink -8);
     nPixHitsTrue140->SetLineColor(kGreen);
-    nPixHitsTrue200->SetLineColor(kPink-8);
+    nPixHitsTrue200->SetLineColor(kBlue);
     nPixHitsTrue300->SetLineColor(kRed);
     
     canv_nPixHitsTrue->cd();
  
     nPixHitsTrue50->Draw();
-    nPixHitsTrue50->SetStats(0);
+    // nPixHitsTrue50->SetStats(0);
     nPixHitsTrue50->GetYaxis()->SetTitleOffset(1.2);
+    nPixHitsTrue50->SetMarkerStyle(20);
+    nPixHitsTrue50->SetMarkerColor(kCyan);        
+
+    // nPixHitsTrue100->Draw("same");
+    // nPixHitsTrue100->SetStats(0);
+    // nPixHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
     
-    nPixHitsTrue100->Draw("same");
-    nPixHitsTrue100->SetStats(0);
-    nPixHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
-    
-    nPixHitsTrue140->Draw("same");
-    nPixHitsTrue140->SetStats(0);
-    nPixHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
+    // nPixHitsTrue140->Draw("same");
+    // nPixHitsTrue140->SetStats(0);
+    // nPixHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
     
     nPixHitsTrue200->Draw("same");
-    nPixHitsTrue200->SetStats(0);
+    // nPixHitsTrue200->SetStats(0);
     nPixHitsTrue200->GetYaxis()->SetTitleOffset(1.2);
+    nPixHitsTrue200->SetMarkerStyle(21);
+    nPixHitsTrue200->SetMarkerColor(kBlue);        
     
     nPixHitsTrue300->Draw("same");
-    nPixHitsTrue300->SetStats(0);
+    // nPixHitsTrue300->SetStats(0);
     nPixHitsTrue300->GetYaxis()->SetTitleOffset(1.2);
- 
+    nPixHitsTrue300->SetMarkerStyle(22);
+    nPixHitsTrue300->SetMarkerColor(kRed);        
     
     TLegend* leg_nPixHitsTrue = new TLegend(0.65,0.6,0.85,0.4);
     leg_nPixHitsTrue->SetFillColor(0);
-    leg_nPixHitsTrue->AddEntry(nPixHitsTrue50, "PU 50", "lp");
-    leg_nPixHitsTrue->AddEntry(nPixHitsTrue100, "PU 100", "lp");
-    leg_nPixHitsTrue->AddEntry(nPixHitsTrue140, "PU 140", "lp");
-    leg_nPixHitsTrue->AddEntry(nPixHitsTrue200, "PU 200", "lp");
-    leg_nPixHitsTrue->AddEntry(nPixHitsTrue300, "PU 300", "lp");
+    leg_nPixHitsTrue->AddEntry(nPixHitsTrue50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nPixHitsTrue->AddEntry(nPixHitsTrue100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nPixHitsTrue->AddEntry(nPixHitsTrue140, (sample + ": PU 140").c_str(), "lp");
+    leg_nPixHitsTrue->AddEntry(nPixHitsTrue200, (sample + ": PU 200").c_str(), "lp");
+    leg_nPixHitsTrue->AddEntry(nPixHitsTrue300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nPixHitsTrue->Draw();
     
@@ -950,41 +1060,47 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     ///////////
 
     nSCTHitsTrue50->SetLineColor(kCyan);
-    nSCTHitsTrue100->SetLineColor(kBlue);
+    nSCTHitsTrue100->SetLineColor(kPink -8);
     nSCTHitsTrue140->SetLineColor(kGreen);
-    nSCTHitsTrue200->SetLineColor(kPink-8);
+    nSCTHitsTrue200->SetLineColor(kBlue);
     nSCTHitsTrue300->SetLineColor(kRed);
     
     canv_nSCTHitsTrue->cd();
  
 
     nSCTHitsTrue50->Draw();
-    nSCTHitsTrue50->SetStats(0);
+    // nSCTHitsTrue50->SetStats(0);
     nSCTHitsTrue50->GetYaxis()->SetTitleOffset(1.2);
+    nSCTHitsTrue50->SetMarkerStyle(20);
+    nSCTHitsTrue50->SetMarkerColor(kCyan);        
+
+    // nSCTHitsTrue100->Draw("same");
+    // nSCTHitsTrue100->SetStats(0);
+    // nSCTHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
     
-    nSCTHitsTrue100->Draw("same");
-    nSCTHitsTrue100->SetStats(0);
-    nSCTHitsTrue100->GetYaxis()->SetTitleOffset(1.2);
-    
-    nSCTHitsTrue140->Draw("same");
-    nSCTHitsTrue140->SetStats(0);
-    nSCTHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
+    // nSCTHitsTrue140->Draw("same");
+    // nSCTHitsTrue140->SetStats(0);
+    // nSCTHitsTrue140->GetYaxis()->SetTitleOffset(1.2);
     
     nSCTHitsTrue200->Draw("same");
-    nSCTHitsTrue200->SetStats(0);
+    // nSCTHitsTrue200->SetStats(0);
     nSCTHitsTrue200->GetYaxis()->SetTitleOffset(1.2);
+    nSCTHitsTrue200->SetMarkerStyle(21);
+    nSCTHitsTrue300->SetMarkerColor(kBlue);        
     
     nSCTHitsTrue300->Draw("same");
-    nSCTHitsTrue300->SetStats(0);
+    // nSCTHitsTrue300->SetStats(0);
     nSCTHitsTrue300->GetYaxis()->SetTitleOffset(1.2);
+    nSCTHitsTrue300->SetMarkerStyle(22);
+    nSCTHitsTrue300->SetMarkerColor(kRed);        
   
     TLegend* leg_nSCTHitsTrue = new TLegend(0.65,0.6,0.85,0.4);
     leg_nSCTHitsTrue->SetFillColor(0);
-    leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue50, "PU 50", "lp");
-    leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue100, "PU 100", "lp");
-    leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue140, "PU 140", "lp");
-    leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue200, "PU 200", "lp");
-    leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue300, "PU 300", "lp");
+    leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue50, (sample + ": PU 50").c_str(), "lp");
+    // leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue100, (sample + ": PU 100").c_str(), "lp");
+    // leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue140, (sample + ": PU 140").c_str(), "lp");
+    leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue200, (sample + ": PU 200").c_str(), "lp");
+    leg_nSCTHitsTrue->AddEntry(nSCTHitsTrue300, (sample + ": PU 300").c_str(), "lp");
     
     leg_nSCTHitsTrue->Draw();
     
