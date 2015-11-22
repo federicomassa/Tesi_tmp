@@ -424,22 +424,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       effPt50->Draw();
       effPt50->SetStats(0);
       effPt50->GetYaxis()->SetTitleOffset(1.2);
+      effPt50->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effPt100->Draw("same");
       effPt100->SetStats(0);
       effPt100->GetYaxis()->SetTitleOffset(1.2);
+      effPt100->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effPt140->Draw("same");
       effPt140->SetStats(0);
       effPt140->GetYaxis()->SetTitleOffset(1.2);
+      effPt140->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effPt200->Draw("same");
       effPt200->SetStats(0);
       effPt200->GetYaxis()->SetTitleOffset(1.2);
+      effPt200->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effPt300->Draw("same");
       effPt300->SetStats(0);
       effPt300->GetYaxis()->SetTitleOffset(1.2);
+      effPt300->GetYaxis()->SetRangeUser(0.0,1.0);
 
       // mg_effPt->GetYaxis()->SetRangeUser(0.0,0.05);
       
@@ -487,22 +492,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       effEta50->Draw();
       effEta50->SetStats(0);
       effEta50->GetYaxis()->SetTitleOffset(1.2);
+      effEta50->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effEta100->Draw("same");
       effEta100->SetStats(0);
       effEta100->GetYaxis()->SetTitleOffset(1.2);
+      effEta100->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effEta140->Draw("same");
       effEta140->SetStats(0);
       effEta140->GetYaxis()->SetTitleOffset(1.2);
+      effEta140->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effEta200->Draw("same");
       effEta200->SetStats(0);
       effEta200->GetYaxis()->SetTitleOffset(1.2);
+      effEta200->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effEta300->Draw("same");
       effEta300->SetStats(0);
       effEta300->GetYaxis()->SetTitleOffset(1.2);
+      effEta300->GetYaxis()->SetRangeUser(0.0,1.0);
 
       // mg_effEta->GetYaxis()->SetRangeUser(0.0,0.05);
       
@@ -550,22 +560,27 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
       effPhi50->Draw();
       effPhi50->SetStats(0);
       effPhi50->GetYaxis()->SetTitleOffset(1.2);
+      effPhi50->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effPhi100->Draw("same");
       effPhi100->SetStats(0);
       effPhi100->GetYaxis()->SetTitleOffset(1.2);
+      effPhi100->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effPhi140->Draw("same");
       effPhi140->SetStats(0);
       effPhi140->GetYaxis()->SetTitleOffset(1.2);
+      effPhi140->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effPhi200->Draw("same");
       effPhi200->SetStats(0);
       effPhi200->GetYaxis()->SetTitleOffset(1.2);
+      effPhi200->GetYaxis()->SetRangeUser(0.0,1.0);
 
       effPhi300->Draw("same");
       effPhi300->SetStats(0);
       effPhi300->GetYaxis()->SetTitleOffset(1.2);
+      effPhi300->GetYaxis()->SetRangeUser(0.0,1.0);
 
       // mg_effPhi->GetYaxis()->SetRangeUser(0.0,0.05);
       

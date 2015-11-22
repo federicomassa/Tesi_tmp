@@ -590,8 +590,8 @@ void TrackHists::FillHists(const xAOD::TrackParticle* trk, float weight) const {
       //      if (prob>0.95) { //don't use it for now
       
       m_absetaGun    -> Fill(TMath::Abs(trk->eta()),weight);
-      m_abseta   -> Fill(TMath::Abs(truthParticle->eta()),weight);
-      m_phiTruth  -> Fill(truthParticle->phi(),weight);
+      m_abseta   -> Fill(TMath::Abs(truthParticle->eta()),weight); //used for efficiency
+      m_phiTruth  -> Fill(truthParticle->phi(),weight); //used for efficiency
 
       m_matchingDR -> Fill(mindR);
       if (mindR<0.01) { m_abseta_dr001 -> Fill(TMath::Abs(truthParticle->eta())); }

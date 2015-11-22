@@ -37,7 +37,8 @@ Track:
 	z0: none
 	phi: none
 	absetaGun: nSiHits > 10
-	abseta: !!! Fills truthParticle->eta() !!!
+	abseta: !!! Fills truthParticle->eta() !!! nSiHits > 10
+	phiTruth: nSiHits > 10
 	biasXXX: if(truthParticle)
 	nSiHits: none
 	nPixHits: none
@@ -84,6 +85,7 @@ Efficiency: ONLY FOR GUN, SO OKAY
 	    - checked that it is function of truth eta and truth phi
 U	    WARNING: if extended to all particles, TruthParticle pt/eta/phi
 	             fill has to be restricted to charged particles.
+            - cut for eta,phi of nSiHits > 10
 Hits:       ONLY FOR GUN, SO OKAY
 	    for every track, takes the number of total,pix or SCT hits
 	    divided for fake and !fake tracks
