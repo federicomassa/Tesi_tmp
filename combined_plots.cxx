@@ -92,7 +92,7 @@ void combined_plots(string sample1, string sample2, bool SaveBiasPlots = false, 
 
     TMultiGraph* mg_Pt = new TMultiGraph;
     mg_Pt   -> SetName("biasPtVsEta_combined");
-    mg_Pt   -> SetTitle("Bias p_{T} vs |#eta|;truth |#eta|;#sigma(p_{T}) [MeV]");
+    mg_Pt   -> SetTitle("#sigma(p_{T}) vs |#eta|;truth |#eta|;#sigma(p_{T}) [MeV]");
 
     biasPtVsEtaPu1_sample1     -> SetLineColor(kRed);
     biasPtVsEtaPu2_sample1     -> SetLineColor(kBlue);
@@ -136,7 +136,7 @@ void combined_plots(string sample1, string sample2, bool SaveBiasPlots = false, 
 
     TMultiGraph* mg_QPt = new TMultiGraph;
     mg_QPt   -> SetName("biasQPtVsEta_combined");
-    mg_QPt   -> SetTitle("Bias q/p_{T} vs |#eta|;truth |#eta|;p_{T} x #sigma(q/p_{T})");
+    mg_QPt   -> SetTitle("#sigma(q/p_{T}) vs |#eta|;truth |#eta|;p_{T} x #sigma(q/p_{T})");
 
     biasQPtVsEtaPu1_sample1     ->SetLineColor(kRed);
     biasQPtVsEtaPu2_sample1    ->SetLineColor(kBlue);
@@ -180,7 +180,7 @@ void combined_plots(string sample1, string sample2, bool SaveBiasPlots = false, 
 
     TMultiGraph* mg_D0 = new TMultiGraph;
     mg_D0   -> SetName("biasD0VsEta_combined");
-    mg_D0   -> SetTitle("Bias D0 vs |#eta|;truth |#eta|;#sigma(D0) [mm]");
+    mg_D0   -> SetTitle("#sigma(D0) vs |#eta|;truth |#eta|;#sigma(D0) [mm]");
 
     biasD0VsEtaPu1_sample1     ->SetLineColor(kRed);
     biasD0VsEtaPu2_sample1    ->SetLineColor(kBlue);
@@ -224,7 +224,7 @@ void combined_plots(string sample1, string sample2, bool SaveBiasPlots = false, 
 
     TMultiGraph* mg_Phi = new TMultiGraph;
     mg_Phi   -> SetName("biasPhiVsEta_combined");
-    mg_Phi   -> SetTitle("Bias Phi vs |#eta|;truth |#eta|;#sigma(Phi)");
+    mg_Phi   -> SetTitle("#sigma(Phi) vs |#eta|;truth |#eta|;#sigma(Phi)");
 
     biasPhiVsEtaPu1_sample1     ->SetLineColor(kRed);
     biasPhiVsEtaPu2_sample1    ->SetLineColor(kBlue);

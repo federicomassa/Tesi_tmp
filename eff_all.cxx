@@ -311,6 +311,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     
     mgFakeGun->Draw("APE");
     mgFakeGun->GetYaxis()->SetTitleOffset(1.2);
+    mgFakeGun->GetYaxis()->SetRangeUser(0.0,0.07);
 
     TLegend* legFakeGun = new TLegend(0.15,0.85,0.4,0.6);
 
@@ -335,7 +336,7 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
 
     TCanvas* canv_fake = new TCanvas();
     canv_fake->SetName("canv_fake");
-    canv_fake->SetTitle("Fake  probability");
+    canv_fake->SetTitle("Fake rate");
 
     TMultiGraph* mgFake = new TMultiGraph();
 
@@ -363,10 +364,11 @@ void eff_all(const string sample, const bool SaveEfficiencyPlots = false, const 
     mgFake->Add(fake200);
     mgFake->Add(fake300);
     
-    mgFake->SetTitle("Fake  Rate per event;Truth |#eta|; Fake rate");
+    mgFake->SetTitle("Fake  Rate;Truth |#eta|; Fake rate");
     
     mgFake->Draw("APE");
     mgFake->GetYaxis()->SetTitleOffset(1.35);
+    mgFake->GetYaxis()->SetRangeUser(0.0,0.0035);
 
     TLegend* legFake = new TLegend(0.15,0.85,0.4,0.6);
 

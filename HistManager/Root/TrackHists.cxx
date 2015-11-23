@@ -161,8 +161,8 @@ void TrackHists::BookHists() {
   m_d0signsigN  = declare1D(m_name, "d0signsigN",  "signed IP significance", 150,   -10.0,   20.0); 
 
   /* track properties */
-  m_nPixHits = declare1D(m_name, "nPixHits", "N Pixel Hits",   16, -0.5, 15.5); 
-  m_nSCTHits = declare1D(m_name, "nSCTHits", "N SCT Hits",	   25, -0.5, 24.5); 
+  m_nPixHits = declare1D(m_name, "nPixHits", "N Pixel Hits",   8, -0.5, 15.5); 
+  m_nSCTHits = declare1D(m_name, "nSCTHits", "N SCT Hits",     12, -0.5, 23.5); 
   m_nSiHits  = declare1D(m_name, "nSiHits",  "N Silicon Hits", 30, -0.5, 29.5);
 
   m_eta_nPixHits = declare2D(m_name, "eta_nPixHits", "|#eta|", "N Pixel Hits",   30, 0, 3.0, 16, -0.5, 15.5); 
@@ -171,18 +171,18 @@ void TrackHists::BookHists() {
 
 
   // hits of true tracks (not fake)
-  m_nTruePixHits = declare1D(m_name, "nTruePixHits", "N Pixel Hits of true tracks",   16, -0.5, 15.5); 
-  m_nTrueSCTHits = declare1D(m_name, "nTrueSCTHits", "N SCT Hits of true tracks",	   25, -0.5, 24.5); 
-  m_nTrueSiHits  = declare1D(m_name, "nTrueSiHits",  "N Silicon Hits of true tracks", 30, -0.5, 29.5);
+  m_nTruePixHits = declare1D(m_name, "nTruePixHits", "N Pixel Hits of true tracks",   8, -0.5, 15.5); 
+  m_nTrueSCTHits = declare1D(m_name, "nTrueSCTHits", "N SCT Hits of true tracks",	   12, -0.5, 23.5); 
+  m_nTrueSiHits  = declare1D(m_name, "nTrueSiHits",  "N Silicon Hits of true tracks", 15, -0.5, 29.5);
 
   m_eta_nTruePixHits = declare2D(m_name, "eta_nTruePixHits", "|#eta|", "N Pixel Hits in true tracks",   30, 0, 3.0, 16, -0.5, 15.5); 
   m_eta_nTrueSCTHits = declare2D(m_name, "eta_nTrueSCTHits", "|#eta|", "N SCT Hits in true tracks",	   30, 0, 3.0, 25, -0.5, 24.5); 
   m_eta_nTrueSiHits  = declare2D(m_name, "eta_nTrueSiHits",  "|#eta|", "N Silicon Hits in true tracks", 30, 0, 3.0, 30, -0.5, 29.5);
 
   // hits of fake tracks
-  m_nFakePixHits = declare1D(m_name, "nFakePixHits", "N Pixel Hits of fake tracks",   16, -0.5, 15.5); 
-  m_nFakeSCTHits = declare1D(m_name, "nFakeSCTHits", "N SCT Hits of fake tracks",	   25, -0.5, 24.5); 
-  m_nFakeSiHits  = declare1D(m_name, "nFakeSiHits",  "N Silicon Hits of fake tracks", 30, -0.5, 29.5);
+  m_nFakePixHits = declare1D(m_name, "nFakePixHits", "N Pixel Hits of fake tracks",   8, -0.5, 15.5); 
+  m_nFakeSCTHits = declare1D(m_name, "nFakeSCTHits", "N SCT Hits of fake tracks",	   12, -0.5, 23.5); 
+  m_nFakeSiHits  = declare1D(m_name, "nFakeSiHits",  "N Silicon Hits of fake tracks", 15, -0.5, 29.5);
 
   m_eta_nFakePixHits = declare2D(m_name, "eta_nFakePixHits", "|#eta|", "N Pixel Hits in fake tracks",   30, 0, 3.0, 16, -0.5, 15.5); 
   m_eta_nFakeSCTHits = declare2D(m_name, "eta_nFakeSCTHits", "|#eta|", "N SCT Hits in fake tracks",	   30, 0, 3.0, 25, -0.5, 24.5); 
