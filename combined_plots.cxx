@@ -1,3 +1,6 @@
+#ifndef COMBINED_PLOTS_CXX
+#define COMBINED_PLOTS_CXX
+
 // Combines two samples and produces plots.
 
 #include <string>
@@ -10,10 +13,11 @@
 #include <TAxis.h>
 #include <iostream>
 
+#ifndef CHECK_PTR
 #define CHECK_PTR(PTR) \
   if (PTR == 0) std::cout << "ERROR: " << #PTR << \
 		  "was not correctly recovered" << std::endl;
-
+#endif
 
 void combined_plots(string sample1, string sample2, bool SaveBiasPlots = false, unsigned int pileup1 = 50, unsigned int pileup2 = 200) {
 
@@ -266,3 +270,5 @@ void combined_plots(string sample1, string sample2, bool SaveBiasPlots = false, 
 
 
 }
+
+#endif

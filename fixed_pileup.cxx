@@ -1,3 +1,6 @@
+#ifndef FIXED_PILEUP_CXX
+#define FIXED_PILEUP_CXX
+
 // Combines two samples and produces plots.
 
 #include <string>
@@ -81,7 +84,7 @@ void fixed_pileup(string particle, unsigned int pileup, bool SaveBiasPlots = fal
     
     TMultiGraph* mg_Pt = new TMultiGraph;
     mg_Pt   -> SetName("biasPtVsEta_fixedPU");
-    mg_Pt   -> SetTitle(("Bias p_{T} vs |#eta| at fixed <#mu> = " + pileup_str + ";truth |#eta|;#sigma(p_{T}) [MeV]").c_str());
+    mg_Pt   -> SetTitle(("#sigma(p_{T}) vs |#eta| at fixed <#mu> = " + pileup_str + ";truth |#eta|;#sigma(p_{T}) [MeV]").c_str());
 
     biasPtVsEta1     ->SetLineColor(kRed);
     biasPtVsEta2     ->SetLineColor(kBlue);
@@ -120,7 +123,7 @@ void fixed_pileup(string particle, unsigned int pileup, bool SaveBiasPlots = fal
     
     TMultiGraph* mg_QPt = new TMultiGraph;
     mg_QPt   -> SetName("biasQPtVsEta_fixedPU");
-    mg_QPt   -> SetTitle(("Bias q/p_{T} vs |#eta| at fixed <#mu> = " + pileup_str + ";truth |#eta|;p_{T} x #sigma(q/p_{T})").c_str());
+    mg_QPt   -> SetTitle(("#sigma(q/p_{T}) vs |#eta| at fixed <#mu> = " + pileup_str + ";truth |#eta|;p_{T} x #sigma(q/p_{T})").c_str());
 
     biasQPtVsEta1     ->SetLineColor(kRed);
     biasQPtVsEta2     ->SetLineColor(kBlue);
@@ -159,7 +162,7 @@ void fixed_pileup(string particle, unsigned int pileup, bool SaveBiasPlots = fal
     
     TMultiGraph* mg_D0 = new TMultiGraph;
     mg_D0   -> SetName("biasD0VsEta_fixedPU");
-    mg_D0   -> SetTitle(("Bias D0 vs |#eta| at fixed <#mu> = " + pileup_str + ";truth |#eta|;#sigma(D0) [mm]").c_str());
+    mg_D0   -> SetTitle(("#sigma(D0) vs |#eta| at fixed <#mu> = " + pileup_str + ";truth |#eta|;#sigma(D0) [mm]").c_str());
 
     biasD0VsEta1     ->SetLineColor(kRed);
     biasD0VsEta2     ->SetLineColor(kBlue);
@@ -198,7 +201,7 @@ void fixed_pileup(string particle, unsigned int pileup, bool SaveBiasPlots = fal
     
     TMultiGraph* mg_Phi = new TMultiGraph;
     mg_Phi   -> SetName("biasPhiVsEta_fixedPU");
-    mg_Phi   -> SetTitle(("Bias Phi vs |#eta| at fixed <#mu> = " + pileup_str + ";truth |#eta|;#sigma(Phi)").c_str());
+    mg_Phi   -> SetTitle(("#sigma(Phi) vs |#eta| at fixed <#mu> = " + pileup_str + ";truth |#eta|;#sigma(Phi)").c_str());
 
     biasPhiVsEta1     ->SetLineColor(kRed);
     biasPhiVsEta2     ->SetLineColor(kBlue);
@@ -235,3 +238,5 @@ void fixed_pileup(string particle, unsigned int pileup, bool SaveBiasPlots = fal
 
   }
 }
+
+#endif
